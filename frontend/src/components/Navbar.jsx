@@ -17,7 +17,7 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Industries', href: '#industries' },
     { label: 'Process', href: '#process' },
     { label: 'Contact', href: '#cta' },
   ]
@@ -41,8 +41,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <img src={logo} alt="Nila Ventures" className="h-8 sm:h-10 w-auto" />
+            <div className="flex flex-col leading-none">
+              <span className="text-base sm:text-lg font-black tracking-[-0.04em] text-white">Nila Ventures</span>
+              <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.28em] text-purple-300/80">Brand Systems</span>
+            </div>
           </div>
 
           {/* Desktop Menu */}
@@ -60,7 +64,11 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="btn-glow px-6 py-2.5 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg font-semibold text-sm hover:shadow-lg">
+            <button
+              onClick={() => scrollToSection('#cta')}
+              className="btn-glow px-6 py-2.5 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg font-semibold text-sm hover:shadow-lg"
+              type="button"
+            >
               Get a Free Quote
             </button>
           </div>
@@ -76,19 +84,25 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3">
-            {navLinks.map((link) => (
+          <div className="md:hidden mt-4 rounded-2xl border border-purple-500/20 bg-[#0b0913]/90 backdrop-blur-xl px-3 py-3 shadow-[0_0_30px_rgba(124,58,237,0.15)]">
+            <div className="space-y-2">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => scrollToSection(link.href)}
+                  className="block w-full text-left px-4 py-2.5 text-gray-200 hover:text-white hover:bg-purple-500/10 rounded-lg transition-colors text-base font-medium"
+                >
+                  {link.label}
+                </button>
+              ))}
               <button
-                key={link.label}
-                onClick={() => scrollToSection(link.href)}
-                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-purple-500/10 rounded-lg transition-colors"
+                onClick={() => scrollToSection('#cta')}
+                className="w-full mt-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg font-semibold"
+                type="button"
               >
-                {link.label}
+                Get a Free Quote
               </button>
-            ))}
-            <button className="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg font-semibold">
-              Get a Free Quote
-            </button>
+            </div>
           </div>
         )}
       </div>

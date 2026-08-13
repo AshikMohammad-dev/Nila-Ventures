@@ -53,10 +53,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-[-0.05em] text-balance">
             Our<span className="neon-text"> Premium Services</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto opacity-90">
             Everything you need to establish a powerful online presence
           </p>
         </div>

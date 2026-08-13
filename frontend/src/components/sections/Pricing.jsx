@@ -104,11 +104,11 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16">
+        <div className="flex gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 md:gap-8 mb-12 sm:mb-16 overflow-x-auto pb-2 sm:overflow-visible snap-x sm:snap-none">
           {pricingPlans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative rounded-xl sm:rounded-2xl transition-all ${
+              className={`relative rounded-xl sm:rounded-2xl transition-all min-w-[260px] sm:min-w-0 snap-start ${
                 plan.highlighted ? 'md:scale-105' : ''
               }`}
               style={{

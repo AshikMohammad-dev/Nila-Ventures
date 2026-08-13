@@ -22,11 +22,11 @@ export default function Hero() {
           {/* Left Content */}
           <div className="space-y-8 animate-slide-up">
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.06em] leading-[0.88] text-balance">
                 Websites That Make
-                <span className="neon-text block">Businesses Look Expensive</span>
+                <span className="neon-text block mt-2">Businesses Look Expensive</span>
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-lg">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-xl opacity-90">
                 We design high-converting websites that help brands build trust, attract customers, and grow faster online.
               </p>
             </div>
@@ -35,16 +35,17 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <button
                 onClick={() => scrollToSection('#cta')}
-                className="btn-glow px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:shadow-glow-lg transition-all flex items-center justify-center gap-2 min-h-12"
+                className="btn-glow w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:shadow-glow-lg transition-all flex items-center justify-center gap-2 min-h-12"
               >
                 Get a Free Quote
                 <ArrowRight className="inline" size={18} />
               </button>
               <button
-                onClick={() => scrollToSection('#portfolio')}
-                className="btn-glow px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-purple-500/50 text-white rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:border-purple-500 hover:shadow-glow transition-all flex items-center justify-center gap-2 min-h-12"
+                onClick={() => scrollToSection('#industries')}
+                className="btn-glow w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-purple-500/50 text-white rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:border-purple-500 hover:shadow-glow transition-all flex items-center justify-center gap-2 min-h-12"
+                type="button"
               >
-                View Portfolio
+                View Industries
               </button>
             </div>
 
@@ -61,6 +62,21 @@ export default function Hero() {
               <div className="flex-1 sm:flex-none">
                 <p className="text-2xl sm:text-3xl text-purple-400"><Smartphone size={28} className="inline sm:hidden" /><Smartphone size={32} className="hidden sm:inline" /></p>
                 <p className="text-xs sm:text-sm text-gray-400">Mobile Ready</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 pt-2 md:hidden">
+              <div className="glass-card p-3 rounded-2xl border border-purple-400/30 bg-gradient-to-br from-purple-500/12 to-violet-500/8 shadow-[0_0_20px_rgba(168,85,247,0.12)]">
+                <div className="flex items-center justify-center mb-2 text-purple-300">
+                  <Monitor size={22} />
+                </div>
+                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Premium Website</p>
+              </div>
+              <div className="glass-card p-3 rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/12 to-purple-500/8 shadow-[0_0_20px_rgba(168,85,247,0.12)]">
+                <div className="flex items-center justify-center mb-2 text-violet-300">
+                  <Smartphone size={22} />
+                </div>
+                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Mobile Ready</p>
               </div>
             </div>
           </div>

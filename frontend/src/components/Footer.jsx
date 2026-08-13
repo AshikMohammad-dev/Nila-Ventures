@@ -18,7 +18,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={logo} alt="Nila Ventures" className="h-12 w-auto" />
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Nila Ventures" className="h-12 w-auto" />
+              <div>
+                <p className="text-lg font-black tracking-[-0.04em] text-white">Nila Ventures</p>
+                <p className="text-[9px] uppercase tracking-[0.24em] text-purple-300/80">Brand Systems</p>
+              </div>
+            </div>
             <p className="text-gray-400">Your Vision. Our Innovation.</p>
             <p className="text-sm text-gray-500">
               Premium web design & digital solutions for growing businesses in Kerala.
@@ -47,10 +53,10 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('#portfolio')}
+                  onClick={() => scrollToSection('#industries')}
                   className="hover:text-purple-400 transition-colors"
                 >
-                  Portfolio
+                  Industries
                 </button>
               </li>
               <li>
@@ -106,11 +112,11 @@ export default function Footer() {
                 <span>nila.ventures</span>
               </a>
               <a
-                href="mailto:hello@nilaventures.in"
-                className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
+                href="mailto:ashikmohammad.zm@gmail.com"
+                className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors break-all"
               >
                 <Mail size={18} />
-                <span>hello@nilaventures.in</span>
+                <span>ashikmohammad.zm@gmail.com</span>
               </a>
             </div>
           </div>

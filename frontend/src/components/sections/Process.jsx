@@ -58,21 +58,18 @@ export default function Process() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-[-0.05em] text-balance">
             Our<span className="neon-text"> Process</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl mx-auto opacity-90">
             A proven methodology for exceptional results
           </p>
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical Line - Hidden on mobile */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-violet-500 to-purple-500 -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/70 to-transparent -translate-x-1/2" />
 
-          {/* Steps */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-5 sm:space-y-6 lg:space-y-8">
             {steps.map((step, idx) => {
               const Icon = step.icon
               const isOdd = idx % 2 === 0
@@ -80,30 +77,35 @@ export default function Process() {
               return (
                 <div
                   key={idx}
-                  className={`flex flex-col ${isOdd ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}
+                  className={`relative flex flex-col lg:flex-row ${isOdd ? '' : 'lg:flex-row-reverse'} gap-4 lg:gap-8 items-stretch`}
                   style={{
                     animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
                   }}
                 >
-                  {/* Content */}
-                  <div className="flex-1 glass-card p-6 sm:p-8 rounded-xl sm:rounded-2xl space-y-3 sm:space-y-4">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <span className="text-3xl font-black neon-text">
-                        {step.number}
-                      </span>
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
-                        <Icon size={24} className="text-white" />
+                  <div className="lg:w-1/2" />
+                  <div className="lg:w-1/2" />
+
+                  <div className={`glass-card w-full lg:w-[calc(50%-2rem)] p-4 sm:p-6 md:p-7 rounded-2xl border border-purple-500/20 relative ${isOdd ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
+                    <div className="absolute left-4 top-4 hidden lg:flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)]">
+                      <span className="text-xs font-black">{step.number}</span>
+                    </div>
+
+                    <div className="flex items-start gap-3 sm:gap-4 lg:pt-2">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.35)]">
+                        <Icon size={22} className="text-white sm:w-6 sm:h-6" />
+                      </div>
+
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 lg:gap-3 mb-2">
+                          <span className="lg:hidden text-xs font-black tracking-[0.2em] text-purple-300">{step.number}</span>
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{step.title}</h3>
+                        </div>
+                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{step.description}</p>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold">{step.title}</h3>
-                    <p className="text-gray-400">{step.description}</p>
                   </div>
 
-                  {/* Timeline Dot */}
-                  <div className="hidden lg:block w-6 h-6 rounded-full border-4 border-dark-bg bg-gradient-to-br from-purple-500 to-violet-600 flex-shrink-0" />
-
-                  {/* Spacer */}
-                  <div className="flex-1 hidden lg:block" />
+                  <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-6 h-6 rounded-full border-4 border-[#050505] bg-gradient-to-br from-purple-500 to-violet-600 shadow-[0_0_20px_rgba(168,85,247,0.45)]" />
                 </div>
               )
             })}

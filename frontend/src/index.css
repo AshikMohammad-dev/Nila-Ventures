@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,12 +15,36 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   background: #050505;
   color: #FFFFFF;
   overflow-x: hidden;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #ffffff;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+button, input, textarea {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 #cursor-glow {
@@ -83,10 +107,11 @@ body {
 }
 
 .neon-text {
-  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+  background: linear-gradient(135deg, #d8b4fe 0%, #a855f7 38%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.25));
 }
 
 .gradient-border {
