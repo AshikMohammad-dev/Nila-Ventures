@@ -1,8 +1,29 @@
 import React, { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, MessageCircle, Instagram, Mail } from 'lucide-react'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null)
+
+  const contactLinks = [
+    {
+      label: 'WhatsApp',
+      icon: MessageCircle,
+      href: 'https://wa.me/917510988356',
+      accent: 'from-green-500 to-emerald-600',
+    },
+    {
+      label: 'Instagram',
+      icon: Instagram,
+      href: 'https://instagram.com/nila.ventures',
+      accent: 'from-pink-500 to-violet-600',
+    },
+    {
+      label: 'Email',
+      icon: Mail,
+      href: 'mailto:ashikmohammad.zm@gmail.com',
+      accent: 'from-purple-500 to-violet-600',
+    },
+  ]
 
   const faqs = [
     {
@@ -50,6 +71,26 @@ export default function FAQ() {
           <p className="text-sm sm:text-base md:text-lg text-gray-400">
             Everything you need to know about our services
           </p>
+        </div>
+
+        {/* Contact Row */}
+        <div className="mb-8 sm:mb-10">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4">
+            {contactLinks.map(({ label, icon: Icon, href, accent }) => (
+              <a
+                key={label}
+                href={href}
+                target={label === 'Email' ? undefined : '_blank'}
+                rel={label === 'Email' ? undefined : 'noopener noreferrer'}
+                className="glass-card group rounded-2xl p-3 sm:p-4 text-center transition-all hover:border-purple-400 hover:scale-[1.02]"
+              >
+                <div className={`mx-auto mb-2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br ${accent} shadow-lg shadow-purple-500/20`}>
+                  <Icon size={18} className="text-white sm:w-5 sm:h-5" />
+                </div>
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em] text-gray-200">{label}</p>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* FAQ Items */}
