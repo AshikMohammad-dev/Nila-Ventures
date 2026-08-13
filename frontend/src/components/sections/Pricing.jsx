@@ -104,11 +104,11 @@ export default function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 md:gap-8 mb-12 sm:mb-16 overflow-x-auto pb-2 sm:overflow-visible snap-x sm:snap-none">
+        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
           {pricingPlans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative rounded-xl sm:rounded-2xl transition-all min-w-[260px] sm:min-w-0 snap-start ${
+              className={`relative rounded-xl sm:rounded-2xl transition-all flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none overflow-visible ${
                 plan.highlighted ? 'md:scale-105' : ''
               }`}
               style={{
@@ -122,7 +122,9 @@ export default function Pricing() {
 
               {/* Card */}
               <div
-                className={`glass-card p-8 rounded-2xl space-y-6 h-full relative ${
+                className={`glass-card p-5 sm:p-6 md:p-8 rounded-2xl space-y-5 sm:space-y-6 h-full relative ${
+                  plan.badge ? 'pt-8 sm:pt-9' : ''
+                } ${
                   plan.highlighted
                     ? 'border-2 border-purple-400 bg-gradient-to-br from-purple-500/15 to-violet-600/15'
                     : 'border border-purple-500/20'
@@ -130,7 +132,7 @@ export default function Pricing() {
               >
                 {/* Badge */}
                 {plan.badge && (
-                  <div className="absolute -top-3 right-8 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-1 rounded-full text-xs font-bold">
+                  <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black tracking-wide shadow-lg shadow-purple-500/30 whitespace-nowrap">
                     {plan.badge}
                   </div>
                 )}
@@ -151,11 +153,11 @@ export default function Pricing() {
                 </div>
 
                 {/* Features */}
-                <div className="space-y-2 sm:space-y-3 flex-1">
+                <div className="space-y-2.5 sm:space-y-3 flex-1">
                   {plan.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-2 sm:gap-3">
                       <Check size={18} className="text-purple-400 flex-shrink-0 mt-0.5 sm:w-5 sm:h-5" />
-                      <span className="text-gray-300 text-xs sm:text-sm leading-snug">{feature}</span>
+                      <span className="text-gray-300 text-[11px] sm:text-sm leading-relaxed break-words">{feature}</span>
                     </div>
                   ))}
                 </div>
