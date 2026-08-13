@@ -132,38 +132,7 @@ export default function CTA() {
           </div>
         </div>
 
-        {/* Contact Info */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-center">
-          <div className="glass-card p-6 rounded-xl space-y-2">
-            <p className="text-gray-400 text-sm">WhatsApp</p>
-            <a
-              href="https://wa.me/917510988356"
-              className="text-xl font-bold text-purple-400 hover:text-purple-300"
-            >
-              +91 7510988356
-            </a>
-          </div>
-          <div className="glass-card p-6 rounded-xl space-y-2">
-            <p className="text-gray-400 text-sm">Instagram</p>
-            <a
-              href="https://instagram.com/nila.ventures"
-              className="text-xl font-bold text-purple-400 hover:text-purple-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              nila.ventures
-            </a>
-          </div>
-          <div className="glass-card p-6 rounded-xl space-y-2">
-            <p className="text-gray-400 text-sm">Email</p>
-            <a
-              href="mailto:ashikmohammad.zm@gmail.com"
-              className="text-xl font-bold text-purple-400 hover:text-purple-300 break-all"
-            >
-              ashikmohammad.zm@gmail.com
-            </a>
-          </div>
-        </div>
+
       </div>
     </section>
   )

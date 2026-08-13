@@ -73,24 +73,24 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* Contact Row */}
-        <div className="mb-8 sm:mb-10">
-          <div className="grid grid-cols-3 gap-2 sm:gap-4">
-            {contactLinks.map(({ label, icon: Icon, href, accent }) => (
-              <a
-                key={label}
-                href={href}
-                target={label === 'Email' ? undefined : '_blank'}
-                rel={label === 'Email' ? undefined : 'noopener noreferrer'}
-                className="glass-card group rounded-2xl p-3 sm:p-4 text-center transition-all hover:border-purple-400 hover:scale-[1.02]"
-              >
-                <div className={`mx-auto mb-2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br ${accent} shadow-lg shadow-purple-500/20`}>
-                  <Icon size={18} className="text-white sm:w-5 sm:h-5" />
-                </div>
-                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em] text-gray-200">{label}</p>
-              </a>
-            ))}
-          </div>
+        {/* Contact Floating Actions */}
+        <div className="fixed bottom-4 right-3 z-50 flex flex-row gap-3 sm:bottom-5 sm:right-5">
+          {contactLinks.map(({ label, icon: Icon, href, accent }) => (
+            <a
+              key={label}
+              href={href}
+              target={label === 'Email' ? undefined : '_blank'}
+              rel={label === 'Email' ? undefined : 'noopener noreferrer'}
+              aria-label={label}
+              className="transition-transform duration-300 hover:scale-110 active:scale-95"
+              title={label}
+            >
+              <Icon
+                size={24}
+                className={label === 'WhatsApp' ? 'text-green-400 sm:w-6 sm:h-6' : label === 'Instagram' ? 'text-pink-400 sm:w-6 sm:h-6' : 'text-purple-300 sm:w-6 sm:h-6'}
+              />
+            </a>
+          ))}
         </div>
 
         {/* FAQ Items */}

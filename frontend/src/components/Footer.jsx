@@ -1,5 +1,4 @@
 import React from 'react'
-import { Instagram, MessageCircle, Mail } from 'lucide-react'
 import logo from '../assets/Nila Ventures_logo.png'
 
 export default function Footer() {
@@ -89,37 +88,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="font-bold text-white">Get In Touch</h4>
-            <div className="space-y-3">
-              <a
-                href="https://wa.me/917510988356"
-                className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle size={18} />
-                <span>+91 7510988356</span>
-              </a>
-              <a
-                href="https://instagram.com/nila.ventures"
-                className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram size={18} />
-                <span>nila.ventures</span>
-              </a>
-              <a
-                href="mailto:ashikmohammad.zm@gmail.com"
-                className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors break-all"
-              >
-                <Mail size={18} />
-                <span>ashikmohammad.zm@gmail.com</span>
-              </a>
-            </div>
-          </div>
+
         </div>
 
         {/* Divider */}

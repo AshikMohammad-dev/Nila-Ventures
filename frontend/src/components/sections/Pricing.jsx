@@ -184,9 +184,9 @@ export default function Pricing() {
         </div>
 
         {/* Trust Badges */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
+        <div className="flex md:grid md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
           {trustBadges.map((badge, idx) => (
-            <div key={idx} className="glass-card p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border border-purple-500/20 text-center hover:border-purple-500/50 transition-all">
+            <div key={idx} className="glass-card p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border border-purple-500/20 text-center hover:border-purple-500/50 transition-all flex-shrink-0 w-[82%] sm:w-[66%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none">
               <div className="flex justify-center mb-2 sm:mb-3 text-purple-400">
                 {badge.icon && React.createElement(badge.icon, { size: 28, className: 'sm:w-9 sm:h-9' })}
               </div>
@@ -197,9 +197,9 @@ export default function Pricing() {
         </div>
 
         {/* Bottom Features */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 pt-6 sm:pt-8">
+        <div className="flex md:grid md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 pt-6 sm:pt-8 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
           {bottomFeatures.map((feature, idx) => (
-            <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2 md:gap-3 text-center sm:text-left">
+            <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2 md:gap-3 text-center sm:text-left flex-shrink-0 w-[70%] sm:w-[60%] md:w-auto max-w-[260px] md:max-w-none snap-center md:snap-none">
               <div className="text-purple-400 flex-shrink-0 mx-auto sm:mx-0">
                 {feature.icon && React.createElement(feature.icon, { size: 20, className: 'sm:w-6 sm:h-6' })}
               </div>
