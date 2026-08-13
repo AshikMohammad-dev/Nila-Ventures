@@ -69,43 +69,34 @@ export default function Process() {
         <div className="relative">
           <div className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/70 to-transparent -translate-x-1/2" />
 
-          <div className="space-y-5 sm:space-y-6 lg:space-y-8">
+          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
             {steps.map((step, idx) => {
               const Icon = step.icon
-              const isOdd = idx % 2 === 0
 
               return (
                 <div
                   key={idx}
-                  className={`relative flex flex-col lg:flex-row ${isOdd ? '' : 'lg:flex-row-reverse'} gap-4 lg:gap-8 items-stretch`}
+                  className="relative flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none"
                   style={{
                     animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
                   }}
                 >
-                  <div className="lg:w-1/2" />
-                  <div className="lg:w-1/2" />
-
-                  <div className={`glass-card w-full lg:w-[calc(50%-2rem)] p-4 sm:p-6 md:p-7 rounded-2xl border border-purple-500/20 relative ${isOdd ? 'lg:mr-auto' : 'lg:ml-auto'}`}>
-                    <div className="absolute left-4 top-4 hidden lg:flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)]">
-                      <span className="text-xs font-black">{step.number}</span>
+                  <div className="glass-card h-full p-4 sm:p-6 md:p-7 rounded-2xl border border-purple-500/20 relative">
+                    <div className="absolute -top-3 left-4 flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)]">
+                      <span className="text-[10px] font-black">{step.number}</span>
                     </div>
 
-                    <div className="flex items-start gap-3 sm:gap-4 lg:pt-2">
+                    <div className="flex items-start gap-3 sm:gap-4 pt-4 sm:pt-5">
                       <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.35)]">
                         <Icon size={22} className="text-white sm:w-6 sm:h-6" />
                       </div>
 
                       <div className="flex-1">
-                        <div className="flex items-center gap-2 lg:gap-3 mb-2">
-                          <span className="lg:hidden text-xs font-black tracking-[0.2em] text-purple-300">{step.number}</span>
-                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{step.title}</h3>
-                        </div>
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{step.title}</h3>
                         <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{step.description}</p>
                       </div>
                     </div>
                   </div>
-
-                  <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-6 h-6 rounded-full border-4 border-[#050505] bg-gradient-to-br from-purple-500 to-violet-600 shadow-[0_0_20px_rgba(168,85,247,0.45)]" />
                 </div>
               )
             })}
