@@ -66,13 +66,19 @@ export default function Testimonials() {
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed italic">"{testimonial.text}"</p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 sm:gap-4 pt-4 border-t border-purple-500/20\">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center flex-shrink-0\">
-                  <span className="font-bold text-white text-xs sm:text-sm\">{testimonial.initials}</span>
+              <div className="flex items-center gap-3 sm:gap-4 pt-4 border-t border-purple-500/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center flex-shrink-0">
+                  <span className="font-bold text-white text-xs sm:text-sm">
+                    {testimonial.initials}
+                  </span>
                 </div>
                 <div>
-                  <p className="font-bold text-sm sm:text-base\">{testimonial.name}</p>
-                  <p className=\"text-xs sm:text-sm text-gray-400\">{testimonial.company}</p>
+                  <p className="font-bold text-sm sm:text-base">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-xs sm:text-sm text-gray-400">
+                    {testimonial.company}
+                  </p>
                 </div>
               </div>
             </div>
