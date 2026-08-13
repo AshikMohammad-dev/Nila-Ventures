@@ -78,13 +78,13 @@ export default function Portfolio() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
           {projects.map((project, idx) => {
             const Icon = project.icon
             return (
               <div
                 key={idx}
-                className="group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transform transition-all duration-300 hover:scale-105"
+                className="group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transform transition-all duration-300 hover:scale-105 flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none"
                 style={{
                   animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
                 }}

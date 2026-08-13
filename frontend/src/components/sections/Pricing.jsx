@@ -108,13 +108,22 @@ export default function Pricing() {
           {pricingPlans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative rounded-xl sm:rounded-2xl transition-all flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none overflow-visible ${
+              className={`relative transition-all flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none ${
                 plan.highlighted ? 'md:scale-105' : ''
               }`}
               style={{
                 animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
               }}
             >
+              {/* Badge outside the card */}
+              {plan.badge && (
+                <div className="relative z-20 mb-[-12px] flex justify-center">
+                  <div className="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black tracking-[0.18em] shadow-lg shadow-purple-500/40 whitespace-nowrap">
+                    {plan.badge}
+                  </div>
+                </div>
+              )}
+
               {/* Glow Background for highlighted */}
               {plan.highlighted && (
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl blur-2xl opacity-30 -z-10" />
@@ -123,19 +132,11 @@ export default function Pricing() {
               {/* Card */}
               <div
                 className={`glass-card p-5 sm:p-6 md:p-8 rounded-2xl space-y-5 sm:space-y-6 h-full relative ${
-                  plan.badge ? 'pt-8 sm:pt-9' : ''
-                } ${
                   plan.highlighted
                     ? 'border-2 border-purple-400 bg-gradient-to-br from-purple-500/15 to-violet-600/15'
                     : 'border border-purple-500/20'
                 }`}
               >
-                {/* Badge */}
-                {plan.badge && (
-                  <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-20 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-black tracking-wide shadow-lg shadow-purple-500/30 whitespace-nowrap">
-                    {plan.badge}
-                  </div>
-                )}
 
                 {/* Icon & Name */}
                 <div className="space-y-3 sm:space-y-4">
