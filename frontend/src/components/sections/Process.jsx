@@ -69,31 +69,38 @@ export default function Process() {
         <div className="relative">
           <div className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/70 to-transparent -translate-x-1/2" />
 
-          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
+          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto pb-4 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
             {steps.map((step, idx) => {
               const Icon = step.icon
+              const isOffset = idx % 2 === 1
 
               return (
                 <div
                   key={idx}
-                  className="relative flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none"
+                  className={`relative flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none ${isOffset ? 'md:mt-10' : 'md:mt-0'}`}
                   style={{
                     animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
                   }}
                 >
-                  <div className="glass-card h-full p-4 sm:p-6 md:p-7 rounded-2xl border border-purple-500/20 relative">
-                    <div className="absolute -top-3 left-4 flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)]">
+                  <div className="relative">
+                    <div className="absolute -top-3 left-4 flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)] z-10">
                       <span className="text-[10px] font-black">{step.number}</span>
                     </div>
 
-                    <div className="flex items-start gap-3 sm:gap-4 pt-4 sm:pt-5">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.35)]">
-                        <Icon size={22} className="text-white sm:w-6 sm:h-6" />
-                      </div>
+                    <div className="absolute left-8 top-1/2 hidden md:block h-px w-7 bg-gradient-to-r from-purple-500 to-transparent -translate-y-1/2" />
 
-                      <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{step.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{step.description}</p>
+                    <div className="glass-card h-full p-4 sm:p-6 md:p-7 rounded-2xl border border-purple-500/20 relative overflow-hidden">
+                      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 to-violet-600 opacity-80" />
+
+                      <div className="flex items-start gap-3 sm:gap-4 pt-4 sm:pt-5">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.35)]">
+                          <Icon size={22} className="text-white sm:w-6 sm:h-6" />
+                        </div>
+
+                        <div className="flex-1">
+                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{step.title}</h3>
+                          <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{step.description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

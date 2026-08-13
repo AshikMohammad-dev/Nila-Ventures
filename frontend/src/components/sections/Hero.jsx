@@ -50,18 +50,18 @@ export default function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pt-8 border-t border-purple-500/20">
-              <div className="flex-1 sm:flex-none">
-                <p className="text-2xl sm:text-3xl font-bold">100%</p>
-                <p className="text-xs sm:text-sm text-gray-400">Custom Design</p>
+            <div className="grid grid-cols-3 gap-2 sm:gap-8 pt-8 border-t border-purple-500/20">
+              <div className="text-center sm:text-left">
+                <p className="text-xl sm:text-3xl font-bold">100%</p>
+                <p className="text-[10px] sm:text-sm text-gray-400">Custom Design</p>
               </div>
-              <div className="flex-1 sm:flex-none">
-                <p className="text-2xl sm:text-3xl text-purple-400"><Zap size={28} className="inline sm:hidden" /><Zap size={32} className="hidden sm:inline" /></p>
-                <p className="text-xs sm:text-sm text-gray-400">Fast Performance</p>
+              <div className="text-center sm:text-left">
+                <p className="text-xl sm:text-3xl text-purple-400 flex items-center justify-center sm:justify-start"><Zap size={22} className="sm:w-8 sm:h-8" /></p>
+                <p className="text-[10px] sm:text-sm text-gray-400">Fast Performance</p>
               </div>
-              <div className="flex-1 sm:flex-none">
-                <p className="text-2xl sm:text-3xl text-purple-400"><Smartphone size={28} className="inline sm:hidden" /><Smartphone size={32} className="hidden sm:inline" /></p>
-                <p className="text-xs sm:text-sm text-gray-400">Mobile Ready</p>
+              <div className="text-center sm:text-left">
+                <p className="text-xl sm:text-3xl text-purple-400 flex items-center justify-center sm:justify-start"><Smartphone size={22} className="sm:w-8 sm:h-8" /></p>
+                <p className="text-[10px] sm:text-sm text-gray-400">Mobile Ready</p>
               </div>
             </div>
 
@@ -70,13 +70,13 @@ export default function Hero() {
                 <div className="flex items-center justify-center mb-2 text-purple-300">
                   <Monitor size={22} />
                 </div>
-                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Premium Website</p>
+                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Built to Convert</p>
               </div>
               <div className="glass-card p-3 rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/12 to-purple-500/8 shadow-[0_0_20px_rgba(168,85,247,0.12)]">
                 <div className="flex items-center justify-center mb-2 text-violet-300">
                   <Smartphone size={22} />
                 </div>
-                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Mobile Ready</p>
+                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Always On Mobile</p>
               </div>
             </div>
           </div>
