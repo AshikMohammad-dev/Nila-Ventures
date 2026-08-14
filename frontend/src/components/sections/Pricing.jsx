@@ -87,28 +87,28 @@ export default function Pricing() {
 
 
   return (
-    <section id="pricing" className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
+    <section id="pricing" className="relative py-10 sm:py-14 md:py-20 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-violet-600/5 blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 space-y-3 sm:space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+        <div className="text-center mb-6 sm:mb-10 md:mb-16 space-y-2 sm:space-y-3 md:space-y-4 animate-slide-up">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight">
             WEBSITE DEVELOPMENT
             <br />
             <span className="neon-text">PACKAGES</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-lg text-gray-400 max-w-2xl mx-auto">
             Professional websites that help your business <span className="text-purple-400">grow</span>.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
+        <div className="flex md:grid md:grid-cols-3 gap-3 sm:gap-5 md:gap-6 mb-8 sm:mb-12 md:mb-16 overflow-x-auto pb-2 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
           {pricingPlans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative transition-all flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none ${
+              className={`relative transition-all flex-shrink-0 w-[88%] sm:w-[78%] md:w-auto max-w-[290px] md:max-w-none snap-center md:snap-none ${
                 plan.highlighted ? 'md:scale-105' : ''
               }`}
               style={{

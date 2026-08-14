@@ -12,31 +12,31 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative bg-dark-card/50 backdrop-blur-xl border-t border-purple-500/10 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <footer className="relative bg-dark-card/50 backdrop-blur-xl border-t border-purple-500/10 py-10 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Brand Section */}
-        <div className="mb-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="Nila Ventures" className="h-12 w-auto" />
+        <div className="mb-8 sm:mb-10 md:mb-12">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <img src={logo} alt="Nila Ventures" className="h-10 sm:h-12 w-auto" />
               <div>
-                <p className="text-lg font-black tracking-[-0.04em] text-white">Nila Ventures</p>
-                <p className="text-[9px] uppercase tracking-[0.24em] text-purple-300/80">Brand Systems</p>
+                <p className="text-base sm:text-lg font-black tracking-[-0.04em] text-white">Nila Ventures</p>
+                <p className="text-[8px] sm:text-[9px] uppercase tracking-[0.24em] text-purple-300/80">Brand Systems</p>
               </div>
             </div>
-            <p className="text-gray-400">Your Vision. Our Innovation.</p>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs sm:text-sm text-gray-400">Your Vision. Our Innovation.</p>
+            <p className="text-xs sm:text-sm text-gray-500">
               Premium web design & digital solutions for growing businesses in Kerala.
             </p>
           </div>
         </div>
 
         {/* Quick Links & Services - Side by Side */}
-        <div className="grid grid-cols-2 gap-12 mb-12 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-10 md:mb-12 md:grid-cols-3">
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-bold text-white">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
+          <div className="space-y-3 sm:space-y-4">
+            <h4 className="font-bold text-sm sm:text-base text-white">Quick Links</h4>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-400">
               <li>
                 <button
                   onClick={() => scrollToSection('#hero')}
@@ -73,9 +73,9 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div className="space-y-4">
-            <h4 className="font-bold text-white">Services</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
+          <div className="space-y-3 sm:space-y-4">
+            <h4 className="font-bold text-sm sm:text-base text-white">Services</h4>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-400">
               <li className="hover:text-purple-400 transition-colors cursor-pointer">
                 Website Design
               </li>
