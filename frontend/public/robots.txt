@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /pricing
+Allow: /contact
+Disallow: /admin
+Disallow: /private
+Disallow: /*.json
+Disallow: /*.xml
+
+# Crawl delay in seconds
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://nila-ventures.vercel.app/sitemap.xml
+Sitemap: https://nila-ventures.vercel.app/sitemap-services.xml
+Sitemap: https://nila-ventures.vercel.app/sitemap-blog.xml

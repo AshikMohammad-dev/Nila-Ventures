@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
 import Hero from './components/sections/Hero'
 import Stats from './components/sections/Stats'
@@ -12,6 +13,8 @@ import FAQ from './components/sections/FAQ'
 import CTA from './components/sections/CTA'
 import Footer from './components/Footer'
 import FloatingParticles from './components/FloatingParticles'
+import SEOHelmet from './components/SEOHelmet'
+import { schemaMarkup } from './utils/seoConfig'
 import './index.css'
 
 export default function App() {
@@ -28,22 +31,25 @@ export default function App() {
   }, [])
 
   return (
-    <div className="relative w-full bg-dark-bg text-white">
-      <FloatingParticles />
-      <Navbar />
-      <main>
-        <Hero />
-        <Stats />
-        <Services />
-        <Transformation />
-        <Portfolio />
-        <Process />
-        <Testimonials />
-        <Pricing />
-        <FAQ />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <HelmetProvider>
+      <SEOHelmet pageKey="home" schemaData={schemaMarkup.organization} />
+      <div className="relative w-full bg-dark-bg text-white">
+        <FloatingParticles />
+        <Navbar />
+        <main>
+          <Hero />
+          <Stats />
+          <Services />
+          <Transformation />
+          <Portfolio />
+          <Process />
+          <Testimonials />
+          <Pricing />
+          <FAQ />
+          <CTA />
+        </main>
+        <Footer />
+      </div>
+    </HelmetProvider>
   )
 }
