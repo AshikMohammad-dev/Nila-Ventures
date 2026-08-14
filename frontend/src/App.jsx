@@ -13,6 +13,7 @@ import FAQ from './components/sections/FAQ'
 import CTA from './components/sections/CTA'
 import Footer from './components/Footer'
 import FloatingParticles from './components/FloatingParticles'
+import FloatingContactMenu from './components/FloatingContactMenu'
 import SEOHelmet from './components/SEOHelmet'
 import { schemaMarkup } from './utils/seoConfig'
 import './index.css'
@@ -35,6 +36,7 @@ export default function App() {
       <SEOHelmet pageKey="home" schemaData={schemaMarkup.organization} />
       <div className="relative w-full bg-dark-bg text-white">
         <FloatingParticles />
+        <FloatingContactMenu />
         <Navbar />
         <main>
           <Hero />
