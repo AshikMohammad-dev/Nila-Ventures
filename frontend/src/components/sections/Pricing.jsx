@@ -189,6 +189,13 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* Extra Charges Note */}
+        <div className="mb-8 sm:mb-10 md:mb-12 text-center">
+          <p className="text-xs sm:text-sm text-gray-400 inline-block bg-dark-card/50 px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-purple-500/20">
+            ⚠️ <span className="text-purple-400 font-semibold">Extra charges may apply</span> for custom features and advanced requirements as per your plan.
+          </p>
+        </div>
+
         {/* Trust Badges */}
         <div className="flex md:grid md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style]:none [scrollbar-width]:none">
           {trustBadges.map((badge, idx) => (
