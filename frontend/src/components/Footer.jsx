@@ -106,9 +106,9 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="WhatsApp"
             title="WhatsApp"
-            className="bg-green-500 hover:bg-green-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+            className="transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100"
           >
-            <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 object-contain" />
+            <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6 object-contain" />
           </a>
           <a
             href="https://instagram.com/nila.ventures"
@@ -116,17 +116,17 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Instagram"
             title="Instagram"
-            className="bg-pink-500 hover:bg-pink-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+            className="transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100"
           >
-            <img src={instagramIcon} alt="Instagram" className="w-5 h-5 object-contain" />
+            <img src={instagramIcon} alt="Instagram" className="w-6 h-6 object-contain" />
           </a>
           <a
             href="mailto:ashikmohammad.zm@gmail.com"
             aria-label="Email"
             title="Email"
-            className="bg-red-500 hover:bg-red-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+            className="transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100"
           >
-            <img src={gmailIcon} alt="Email" className="w-5 h-5 object-contain" />
+            <img src={gmailIcon} alt="Email" className="w-6 h-6 object-contain" />
           </a>
         </div>
 
