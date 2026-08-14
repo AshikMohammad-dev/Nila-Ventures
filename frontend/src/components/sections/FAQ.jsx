@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { ChevronDown, MessageCircle, Instagram, Mail } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import whatsappIcon from '../../assets/whatsapp-symbol-logo-svgrepo-com.svg'
+import instagramIcon from '../../assets/instagram-1-svgrepo-com.svg'
+import gmailIcon from '../../assets/gmail-svgrepo-com.svg'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null)
@@ -7,19 +10,19 @@ export default function FAQ() {
   const contactLinks = [
     {
       label: 'WhatsApp',
-      icon: MessageCircle,
+      icon: whatsappIcon,
       href: 'https://wa.me/917510988356',
       accent: 'from-green-500 to-emerald-600',
     },
     {
       label: 'Instagram',
-      icon: Instagram,
+      icon: instagramIcon,
       href: 'https://instagram.com/nila.ventures',
       accent: 'from-pink-500 to-violet-600',
     },
     {
       label: 'Email',
-      icon: Mail,
+      icon: gmailIcon,
       href: 'mailto:ashikmohammad.zm@gmail.com',
       accent: 'from-purple-500 to-violet-600',
     },
@@ -75,7 +78,7 @@ export default function FAQ() {
 
         {/* Contact Floating Actions */}
         <div className="fixed bottom-4 right-3 z-50 flex flex-row gap-3 sm:bottom-5 sm:right-5">
-          {contactLinks.map(({ label, icon: Icon, href, accent }) => (
+          {contactLinks.map(({ label, icon, href }) => (
             <a
               key={label}
               href={href}
@@ -85,9 +88,10 @@ export default function FAQ() {
               className="transition-transform duration-300 hover:scale-110 active:scale-95"
               title={label}
             >
-              <Icon
-                size={24}
-                className={label === 'WhatsApp' ? 'text-green-400 sm:w-6 sm:h-6' : label === 'Instagram' ? 'text-pink-400 sm:w-6 sm:h-6' : 'text-purple-300 sm:w-6 sm:h-6'}
+              <img
+                src={icon}
+                alt={label}
+                className="w-6 h-6 sm:w-7 sm:h-7 object-contain hover:drop-shadow-lg"
               />
             </a>
           ))}
