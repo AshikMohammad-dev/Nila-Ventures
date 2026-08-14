@@ -19,35 +19,37 @@ export default function Hero() {
       id="hero"
       className="relative md:min-h-screen pt-16 sm:pt-20 md:pt-28 pb-4 sm:pb-6 md:pb-16 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden flex items-center"
     >
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-hero-gradient opacity-10 blur-3xl -z-10" />
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-hero-gradient opacity-5 blur-3xl -z-10 animate-pulse" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-violet-600/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-violet-600/10 to-purple-500/10 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-2 sm:gap-4 md:gap-10 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-2 sm:space-y-3 md:space-y-5 animate-slide-up">
             <div className="space-y-2 sm:space-y-2.5 md:space-y-3">
-              <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black tracking-[-0.04em] leading-snug text-balance">
+              <h1 className="text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-black tracking-[-0.04em] leading-tight text-balance">
                 Websites That Make
-                <span className="neon-text block mt-1">Businesses Look Expensive</span>
+                <span className="neon-text block mt-2 sm:mt-1">Businesses Look<br className="sm:hidden" /> Expensive</span>
               </h1>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl opacity-90">
                 High-converting websites that help brands build trust and grow faster online.
               </p>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-1.5 sm:gap-2.5 md:gap-3 pt-1 sm:pt-2 md:pt-4">
+            {/* CTA Buttons - Mobile Optimized */}
+            <div className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 pt-2 sm:pt-2 md:pt-4">
               <button
                 onClick={openWhatsApp}
-                className="btn-glow w-full px-3 sm:px-5 md:px-8 py-1.5 sm:py-2.5 md:py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-lg md:rounded-xl font-bold text-xs sm:text-sm md:text-base lg:text-lg hover:shadow-glow-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2"
+                className="btn-glow w-full px-4 sm:px-5 md:px-8 py-3 sm:py-2.5 md:py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl sm:rounded-lg md:rounded-xl font-bold text-sm sm:text-sm md:text-base lg:text-lg hover:shadow-glow-lg transition-all duration-300 flex items-center justify-center gap-2 sm:gap-2 group min-h-[48px] sm:min-h-auto shadow-lg"
               >
-                <MessageCircle size={12} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <MessageCircle size={18} className="sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform" />
                 Get a Free Quote
               </button>
               <button
                 onClick={() => scrollToSection('#industries')}
-                className="btn-glow w-full px-3 sm:px-5 md:px-8 py-1.5 sm:py-2.5 md:py-3 bg-transparent border-2 border-purple-500/50 text-white rounded-lg sm:rounded-lg md:rounded-xl font-bold text-xs sm:text-sm md:text-base lg:text-lg hover:border-purple-500 hover:shadow-glow transition-all"
+                className="w-full px-4 sm:px-5 md:px-8 py-3 sm:py-2.5 md:py-3 bg-transparent border-2 border-purple-500/50 text-white rounded-xl sm:rounded-lg md:rounded-xl font-bold text-sm sm:text-sm md:text-base lg:text-lg hover:border-purple-500 hover:shadow-glow hover:bg-purple-500/5 transition-all duration-300 min-h-[48px] sm:min-h-auto"
                 type="button"
               >
                 View Industries

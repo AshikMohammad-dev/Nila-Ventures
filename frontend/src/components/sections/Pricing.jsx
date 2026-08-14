@@ -135,7 +135,7 @@ export default function Pricing() {
 
               {/* Card */}
               <div
-                className={`glass-card p-5 sm:p-6 md:p-8 rounded-2xl space-y-5 sm:space-y-6 h-full relative ${
+                className={`pricing-card premium-card-shimmer glass-card p-5 sm:p-6 md:p-8 rounded-2xl space-y-4 sm:space-y-6 h-full relative ${
                   plan.highlighted
                     ? 'border-2 border-purple-400 bg-gradient-to-br from-purple-500/15 to-violet-600/15'
                     : 'border border-purple-500/20'
@@ -175,13 +175,13 @@ export default function Pricing() {
                 {/* CTA Button */}
                 <button
                   onClick={() => openWhatsAppWithPlan(plan.name)}
-                  className={`w-full py-2 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-bold transition-all text-sm sm:text-base min-h-10 sm:min-h-12 flex items-center justify-center gap-2 ${
+                  className={`w-full py-3 sm:py-3 md:py-4 rounded-xl sm:rounded-xl md:rounded-xl font-bold transition-all text-sm sm:text-sm md:text-base min-h-[48px] sm:min-h-12 flex items-center justify-center gap-2 group ${
                     plan.highlighted
-                      ? 'btn-glow bg-gradient-to-r from-purple-500 to-violet-600 text-white'
-                      : 'border-2 border-purple-500/50 text-white hover:border-purple-500 hover:bg-purple-500/10'
+                      ? 'btn-glow bg-gradient-to-r from-purple-500 to-violet-600 text-white shadow-lg shadow-purple-500/30'
+                      : 'border-2 border-purple-500/50 text-white hover:border-purple-500 hover:bg-purple-500/10 hover:shadow-glow transition-all duration-300'
                   }`}
                 >
-                  <MessageSquare size={16} className="sm:w-5 sm:h-5" />
+                  <MessageSquare size={18} className="sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                   Get Started
                 </button>
               </div>
