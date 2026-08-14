@@ -14,8 +14,8 @@ export default function Footer() {
   return (
     <footer className="relative bg-dark-card/50 backdrop-blur-xl border-t border-purple-500/10 py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
+        {/* Brand Section */}
+        <div className="mb-12">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img src={logo} alt="Nila Ventures" className="h-12 w-auto" />
@@ -29,7 +29,10 @@ export default function Footer() {
               Premium web design & digital solutions for growing businesses in Kerala.
             </p>
           </div>
+        </div>
 
+        {/* Quick Links & Services - Side by Side */}
+        <div className="grid grid-cols-2 gap-12 mb-12 md:grid-cols-3">
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="font-bold text-white">Quick Links</h4>
@@ -87,8 +90,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-
         </div>
 
         {/* Divider */}

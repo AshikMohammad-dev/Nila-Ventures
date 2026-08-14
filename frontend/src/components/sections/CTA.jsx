@@ -16,7 +16,7 @@ export default function CTA() {
   return (
     <section
       id="cta"
-      className="relative py-16 sm:py-20 md:py-24 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-600 opacity-10 blur-3xl -z-10" />
@@ -131,8 +131,6 @@ export default function CTA() {
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   )

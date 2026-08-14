@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-24 sm:pt-32 pb-16 sm:pb-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden flex items-center"
+      className="relative min-h-screen pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden flex items-center"
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-hero-gradient opacity-10 blur-3xl -z-10" />
@@ -50,7 +50,7 @@ export default function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-8 pt-8 border-t border-purple-500/20">
+            <div className="grid grid-cols-3 gap-2 sm:gap-8 pt-6 sm:pt-8 pb-4 sm:pb-0 border-t border-purple-500/20">
               <div className="text-center sm:text-left">
                 <p className="text-xl sm:text-3xl font-bold">100%</p>
                 <p className="text-[10px] sm:text-sm text-gray-400">Custom Design</p>
@@ -62,21 +62,6 @@ export default function Hero() {
               <div className="text-center sm:text-left">
                 <p className="text-xl sm:text-3xl text-purple-400 flex items-center justify-center sm:justify-start"><Smartphone size={22} className="sm:w-8 sm:h-8" /></p>
                 <p className="text-[10px] sm:text-sm text-gray-400">Mobile Ready</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 pt-2 md:hidden">
-              <div className="glass-card p-3 rounded-2xl border border-purple-400/30 bg-gradient-to-br from-purple-500/12 to-violet-500/8 shadow-[0_0_20px_rgba(168,85,247,0.12)]">
-                <div className="flex items-center justify-center mb-2 text-purple-300">
-                  <Monitor size={22} />
-                </div>
-                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Built to Convert</p>
-              </div>
-              <div className="glass-card p-3 rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/12 to-purple-500/8 shadow-[0_0_20px_rgba(168,85,247,0.12)]">
-                <div className="flex items-center justify-center mb-2 text-violet-300">
-                  <Smartphone size={22} />
-                </div>
-                <p className="text-center text-[11px] font-semibold tracking-[0.08em] text-gray-100 uppercase">Always On Mobile</p>
               </div>
             </div>
           </div>
