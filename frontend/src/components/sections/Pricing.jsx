@@ -2,6 +2,10 @@ import React from 'react'
 import { Check, Shield, Smartphone, Zap, Headphones, Monitor, Gem, ShoppingCart, PenTool, DollarSign, TrendingUp, MessageSquare } from 'lucide-react'
 
 export default function Pricing() {
+  const openWhatsAppWithPlan = (planName) => {
+    const message = `Hi Nila Ventures! I'm interested in the ${planName} package. Can you provide more details?`
+    window.open(`https://wa.me/917510988356?text=${encodeURIComponent(message)}`, '_blank')
+  }
   const pricingPlans = [
     {
       name: 'BASIC',
@@ -170,12 +174,14 @@ export default function Pricing() {
 
                 {/* CTA Button */}
                 <button
-                  className={`w-full py-2 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-bold transition-all text-sm sm:text-base min-h-10 sm:min-h-12 ${
+                  onClick={() => openWhatsAppWithPlan(plan.name)}
+                  className={`w-full py-2 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-bold transition-all text-sm sm:text-base min-h-10 sm:min-h-12 flex items-center justify-center gap-2 ${
                     plan.highlighted
                       ? 'btn-glow bg-gradient-to-r from-purple-500 to-violet-600 text-white'
                       : 'border-2 border-purple-500/50 text-white hover:border-purple-500 hover:bg-purple-500/10'
                   }`}
                 >
+                  <MessageSquare size={16} className="sm:w-5 sm:h-5" />
                   Get Started
                 </button>
               </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight, Monitor, Smartphone, Zap } from 'lucide-react'
+import { ArrowRight, Monitor, Smartphone, Zap, MessageCircle } from 'lucide-react'
 
 export default function Hero() {
   const scrollToSection = (href) => {
@@ -7,6 +7,11 @@ export default function Hero() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+  }
+
+  const openWhatsApp = () => {
+    const message = "Hi Nila Ventures! I'm interested in getting a free quote for my website project. Can you help me?"
+    window.open(`https://wa.me/917510988356?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   return (
@@ -34,11 +39,11 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col gap-1.5 sm:gap-2.5 md:gap-3 pt-1 sm:pt-2 md:pt-4">
               <button
-                onClick={() => scrollToSection('#cta')}
+                onClick={openWhatsApp}
                 className="btn-glow w-full px-3 sm:px-5 md:px-8 py-1.5 sm:py-2.5 md:py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-lg md:rounded-xl font-bold text-xs sm:text-sm md:text-base lg:text-lg hover:shadow-glow-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2"
               >
+                <MessageCircle size={12} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
                 Get a Free Quote
-                <ArrowRight size={12} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </button>
               <button
                 onClick={() => scrollToSection('#industries')}
