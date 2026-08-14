@@ -1,5 +1,8 @@
 import React from 'react'
 import logo from '../assets/Nila Ventures_logo.png'
+import whatsappIcon from '../assets/whatsapp-symbol-logo-svgrepo-com.svg'
+import instagramIcon from '../assets/instagram-1-svgrepo-com.svg'
+import gmailIcon from '../assets/gmail-svgrepo-com.svg'
 
 export default function Footer() {
   const scrollToSection = (href) => {
@@ -94,6 +97,38 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="h-px bg-gradient-to-r from-purple-500/0 via-purple-500/50 to-purple-500/0 my-8" />
+
+        {/* Social Media Links */}
+        <div className="flex justify-center gap-6 mb-8">
+          <a
+            href="https://wa.me/917510988356"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            title="WhatsApp"
+            className="bg-green-500 hover:bg-green-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+          >
+            <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 object-contain" />
+          </a>
+          <a
+            href="https://instagram.com/nila.ventures"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            title="Instagram"
+            className="bg-pink-500 hover:bg-pink-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+          >
+            <img src={instagramIcon} alt="Instagram" className="w-5 h-5 object-contain" />
+          </a>
+          <a
+            href="mailto:ashikmohammad.zm@gmail.com"
+            aria-label="Email"
+            title="Email"
+            className="bg-red-500 hover:bg-red-600 p-3 rounded-full transition-all duration-300 hover:scale-110"
+          >
+            <img src={gmailIcon} alt="Email" className="w-5 h-5 object-contain" />
+          </a>
+        </div>
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
