@@ -62,29 +62,29 @@ export default function Portfolio() {
   return (
     <section
       id="industries"
-      className="relative py-10 sm:py-14 md:py-20 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
+      className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-violet-600/5 blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-10 md:mb-16 space-y-2 sm:space-y-3 md:space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black">
+        <div className="text-center mb-4 sm:mb-6 md:mb-10 space-y-1.5 sm:space-y-2 md:space-y-3 animate-slide-up">
+          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black">
             Industries We<span className="neon-text"> Transform</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 max-w-2xl mx-auto">
             Specialized solutions for your industry with proven growth strategies
           </p>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
+        <div className="flex md:grid md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 overflow-x-auto pb-1 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
           {projects.map((project, idx) => {
             const Icon = project.icon
             return (
               <div
                 key={idx}
-                className="group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transform transition-all duration-300 hover:scale-105 flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none"
+                className="group relative overflow-hidden rounded-lg sm:rounded-lg md:rounded-xl cursor-pointer transform transition-all duration-300 hover:scale-105 flex-shrink-0 w-[90%] sm:w-[74%] md:w-auto max-w-[280px] md:max-w-none snap-center md:snap-none"
                 style={{
                   animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
                 }}
@@ -93,7 +93,7 @@ export default function Portfolio() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
 
                 {/* Glass Card */}
-                <div className="glass-card relative h-full min-h-80 p-5 sm:p-6 md:p-8 flex flex-col justify-between border border-purple-500/20 group-hover:border-purple-500/50 transition-all duration-300">
+                <div className="glass-card relative h-full min-h-64 sm:min-h-72 md:min-h-80 p-4 sm:p-5 md:p-6 flex flex-col justify-between border border-purple-500/20 group-hover:border-purple-500/50 transition-all duration-300">
                   {/* Top Section */}
                   <div className="space-y-4">
                     {/* Category Badge */}

@@ -12,57 +12,41 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-16 sm:pt-24 md:pt-32 pb-10 sm:pb-14 md:pb-20 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden flex items-center"
+      className="relative md:min-h-screen pt-16 sm:pt-20 md:pt-28 pb-4 sm:pb-6 md:pb-16 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden flex items-center"
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-hero-gradient opacity-10 blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+        <div className="grid md:grid-cols-2 gap-2 sm:gap-4 md:gap-10 lg:gap-16 items-center">
           {/* Left Content */}
-            <div className="space-y-6 sm:space-y-8 animate-slide-up">
-            <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.05em] leading-tight sm:leading-[0.9] md:leading-[0.88] text-balance">
+          <div className="space-y-2 sm:space-y-3 md:space-y-5 animate-slide-up">
+            <div className="space-y-2 sm:space-y-2.5 md:space-y-3">
+              <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black tracking-[-0.04em] leading-snug text-balance">
                 Websites That Make
-                <span className="neon-text block mt-1 sm:mt-2">Businesses Look Expensive</span>
+                <span className="neon-text block mt-1">Businesses Look Expensive</span>
               </h1>
-              <p className="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-xl opacity-90">
-                We design high-converting websites that help brands build trust, attract customers, and grow faster online.
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl opacity-90">
+                High-converting websites that help brands build trust and grow faster online.
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 pt-2 sm:pt-4">
+            <div className="flex flex-col gap-1.5 sm:gap-2.5 md:gap-3 pt-1 sm:pt-2 md:pt-4">
               <button
                 onClick={() => scrollToSection('#cta')}
-                className="btn-glow w-full sm:w-auto px-5 sm:px-8 py-2.5 sm:py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-xl font-bold text-sm sm:text-base md:text-lg hover:shadow-glow-lg transition-all flex items-center justify-center gap-2 min-h-10 sm:min-h-12"
+                className="btn-glow w-full px-3 sm:px-5 md:px-8 py-1.5 sm:py-2.5 md:py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-lg md:rounded-xl font-bold text-xs sm:text-sm md:text-base lg:text-lg hover:shadow-glow-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2"
               >
                 Get a Free Quote
-                <ArrowRight className="inline" size={16} />
+                <ArrowRight size={12} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </button>
               <button
                 onClick={() => scrollToSection('#industries')}
-                className="btn-glow w-full sm:w-auto px-5 sm:px-8 py-2.5 sm:py-4 bg-transparent border-2 border-purple-500/50 text-white rounded-lg sm:rounded-xl font-bold text-sm sm:text-base md:text-lg hover:border-purple-500 hover:shadow-glow transition-all flex items-center justify-center gap-2 min-h-10 sm:min-h-12"
+                className="btn-glow w-full px-3 sm:px-5 md:px-8 py-1.5 sm:py-2.5 md:py-3 bg-transparent border-2 border-purple-500/50 text-white rounded-lg sm:rounded-lg md:rounded-xl font-bold text-xs sm:text-sm md:text-base lg:text-lg hover:border-purple-500 hover:shadow-glow transition-all"
                 type="button"
               >
                 View Industries
               </button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-8 pt-6 sm:pt-8 pb-4 sm:pb-0 border-t border-purple-500/20">
-              <div className="text-center sm:text-left">
-                <p className="text-xl sm:text-3xl font-bold">100%</p>
-                <p className="text-[10px] sm:text-sm text-gray-400">Custom Design</p>
-              </div>
-              <div className="text-center sm:text-left">
-                <p className="text-xl sm:text-3xl text-purple-400 flex items-center justify-center sm:justify-start"><Zap size={22} className="sm:w-8 sm:h-8" /></p>
-                <p className="text-[10px] sm:text-sm text-gray-400">Fast Performance</p>
-              </div>
-              <div className="text-center sm:text-left">
-                <p className="text-xl sm:text-3xl text-purple-400 flex items-center justify-center sm:justify-start"><Smartphone size={22} className="sm:w-8 sm:h-8" /></p>
-                <p className="text-[10px] sm:text-sm text-gray-400">Mobile Ready</p>
-              </div>
             </div>
           </div>
 

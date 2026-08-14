@@ -16,41 +16,41 @@ export default function CTA() {
   return (
     <section
       id="cta"
-      className="relative py-10 sm:py-14 md:py-20 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
+      className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-600 opacity-10 blur-3xl -z-10" />
       <div className="absolute inset-0 bg-hero-gradient opacity-5 blur-2xl -z-10" />
 
       <div className="max-w-4xl mx-auto">
-        <div className="glass-card p-6 sm:p-10 md:p-16 rounded-3xl border-purple-400/30 text-center space-y-8 animate-slide-up">
+        <div className="glass-card p-4 sm:p-6 md:p-10 rounded-3xl border-purple-400/30 text-center space-y-4 sm:space-y-6 animate-slide-up">
           {/* Content */}
-          <div className="space-y-4 sm:space-y-6">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-[-0.04em]">
+          <div className="space-y-2 sm:space-y-3">
+            <h2 className="text-lg sm:text-2xl md:text-4xl font-black leading-tight tracking-[-0.04em]">
               Let's Build Your
-              <span className="neon-text block mt-1 sm:mt-2">Success Story</span>
+              <span className="neon-text block mt-0.5 sm:mt-1">Success Story</span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Your website should work as your best salesperson. Let's create something extraordinary together.
             </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 sm:pt-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center pt-1 sm:pt-2">
             <button
               type="button"
               onClick={openWhatsApp}
-              className="btn-glow w-full sm:w-auto flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:shadow-lg transition-all min-h-12"
+              className="btn-glow w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg sm:rounded-lg font-bold text-xs sm:text-sm md:text-base hover:shadow-lg transition-all min-h-10 sm:min-h-11"
             >
-              <MessageCircle size={20} />
+              <MessageCircle size={16} className="sm:w-5 sm:h-5" />
               WhatsApp Us
             </button>
             <button
               type="button"
               onClick={scrollToForm}
-              className="btn-glow w-full sm:w-auto flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:shadow-lg transition-all min-h-12"
+              className="btn-glow w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-lg font-bold text-xs sm:text-sm md:text-base hover:shadow-lg transition-all min-h-10 sm:min-h-11"
             >
-              <Calendar size={20} />
+              <Calendar size={16} className="sm:w-5 sm:h-5" />
               Free Consultation
             </button>
           </div>

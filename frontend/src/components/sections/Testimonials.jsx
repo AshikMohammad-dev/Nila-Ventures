@@ -27,16 +27,16 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="relative py-10 sm:py-14 md:py-20 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden">
+    <section className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-violet-600/5 blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-6 sm:mb-10 md:mb-16 space-y-2 sm:space-y-3 md:space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black">
+        <div className="text-center mb-4 sm:mb-6 md:mb-10 space-y-1.5 sm:space-y-2 md:space-y-3 animate-slide-up">
+          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black">
             Loved by<span className="neon-text"> Businesses</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 max-w-2xl mx-auto">
             Real testimonials from our satisfied clients
           </p>
         </div>
