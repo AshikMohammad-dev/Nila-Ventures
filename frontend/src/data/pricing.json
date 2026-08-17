@@ -1,60 +1,60 @@
-{
-  "plans": [
-    {
-      "id": "basic",
-      "name": "BASIC",
-      "price": "₹7,500",
-      "priceNumber": 7500,
-      "icon": "Monitor",
-      "tagline": "Perfect for startups and small businesses.",
-      "features": [
-        "Professional Website",
-        "Up to 5 Pages",
-        "Showcase Your Products/Services",
-        "WhatsApp Integration",
-        "Instagram & Social Media Links",
-        "Mobile Friendly Design",
-        "Website Setup & Launch"
-      ],
-      "highlighted": true
-    },
-    {
-      "id": "premium",
-      "name": "PREMIUM",
-      "price": "₹13,500",
-      "priceNumber": 13500,
-      "icon": "Gem",
-      "badge": "MOST POPULAR",
-      "tagline": "Great for growing businesses that want more visibility.",
-      "features": [
-        "Everything in Basic",
-        "Up to 10 Pages",
-        "Different Pages for Each Service/Product",
-        "Product Prices & Details",
-        "WhatsApp & Call Button",
-        "Google Maps Integration",
-        "Custom Premium Design",
-        "Better UI/UX & Animations"
-      ],
-      "highlighted": true
-    },
-    {
-      "id": "online-store",
-      "name": "ONLINE STORE",
-      "price": "₹21,000",
-      "priceNumber": 21000,
-      "icon": "ShoppingCart",
-      "tagline": "Complete solution to sell your products or services online.",
-      "features": [
-        "Everything in Premium",
-        "Shopping Cart",
-        "Online Ordering",
-        "Online Payment Options",
-        "Order Management",
-        "Product Availability Management",
-        "Offers & Discounts"
-      ],
-      "highlighted": false
-    }
-  ]
-}
+  {
+    "plans": [
+      {
+        "id": "basic",
+        "name": "BASIC",
+        "price": "₹7,500",
+        "priceNumber": 7500,
+        "icon": "Monitor",
+        "tagline": "Perfect for startups and small businesses.",
+        "features": [
+          "Professional Website",
+          "Up to 5 Pages",
+          "Showcase Your Products/Services",
+          "WhatsApp Integration",
+          "Instagram & Social Media Links",
+          "Mobile Friendly Design",
+          "Website Setup & Launch"
+        ],
+        "highlighted": false
+      },
+      {
+        "id": "premium",
+        "name": "PREMIUM",
+        "price": "₹13,500",
+        "priceNumber": 13500,
+        "icon": "Gem",
+        "badge": "MOST POPULAR",
+        "tagline": "Great for growing businesses that want more visibility.",
+        "features": [
+          "Everything in Basic",
+          "Up to 10 Pages",
+          "Different Pages for Each Service/Product",
+          "Product Prices & Details",
+          "WhatsApp & Call Button",
+          "Google Maps Integration",
+          "Custom Premium Design",
+          "Better UI/UX & Animations"
+        ],
+        "highlighted": true
+      },
+      {
+        "id": "online-store",
+        "name": "ONLINE STORE",
+        "price": "₹21,000",
+        "priceNumber": 21000,
+        "icon": "ShoppingCart",
+        "tagline": "Complete solution to sell your products or services online.",
+        "features": [
+          "Everything in Premium",
+          "Shopping Cart",
+          "Online Ordering",
+          "Online Payment Options",
+          "Order Management",
+          "Product Availability Management",
+          "Offers & Discounts"
+        ],
+        "highlighted": false
+      }
+    ]
+  }
