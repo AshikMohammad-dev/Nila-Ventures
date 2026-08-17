@@ -1,8 +1,21 @@
-import React from 'react'
-import { MessageCircle, Calendar, Check } from 'lucide-react'
+import React, { useState } from 'react'
+import emailjs from 'emailjs-com'
+import { MessageCircle, Calendar, Check, Loader } from 'lucide-react'
 
 export default function CTA() {
-  const formspreeEndpoint = 'https://formspree.io/f/xeajzeqr'
+  // ⚠️ IMPORTANT: Replace these with your EmailJS credentials
+  const EMAILJS_SERVICE_ID = 'service_495ati6'
+  const EMAILJS_TEMPLATE_ID = 'template_g2dy1zd'
+  const EMAILJS_PUBLIC_KEY = 'bMj9bnUDQRFFPiRi-'
+
+  // Initialize EmailJS (do this once)
+  React.useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY)
+  }, [])
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
+  const [submitStatus, setSubmitStatus] = useState('')
 
   const openWhatsApp = () => {
     window.open('https://wa.me/917510988356?text=Hi%20Nila%20Ventures%2C%20I%20want%20to%20know%20more%20about%20your%20website%20design%20services.', '_blank')
@@ -11,6 +24,51 @@ export default function CTA() {
   const scrollToForm = () => {
     const form = document.getElementById('consultation-form')
     form?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault()
+    
+    // Check if credentials are set
+    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
+      setSubmitStatus('error')
+      setSubmitMessage('❌ Email service not configured yet. Please add your EmailJS credentials.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitMessage('')
+
+    try {
+      const formData = new FormData(e.target)
+      const templateParams = {
+        from_name: formData.get('name'),
+        from_email: formData.get('email'),
+        company: formData.get('company'),
+        message: formData.get('message'),
+        to_email: 'ashikmohammad.zm@gmail.com',
+      }
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      )
+
+      setSubmitStatus('success')
+      setSubmitMessage('✅ Your inquiry has been sent! We\'ll respond within 24 hours.')
+      e.target.reset()
+      setTimeout(() => {
+        setSubmitMessage('')
+      }, 5000)
+    } catch (error) {
+      console.error('Email error:', error)
+      setSubmitStatus('error')
+      setSubmitMessage('❌ Failed to send inquiry. Please try again or contact us on WhatsApp.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -57,8 +115,7 @@ export default function CTA() {
 
           <form
             id="consultation-form"
-            action={formspreeEndpoint}
-            method="POST"
+            onSubmit={handleFormSubmit}
             className="mt-8 sm:mt-10 mx-auto max-w-2xl glass-card rounded-2xl border border-purple-500/20 p-4 sm:p-6 text-left"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -111,11 +168,24 @@ export default function CTA() {
               <p className="text-xs text-gray-400">We usually respond within 24 hours.</p>
               <button
                 type="submit"
-                className="btn-glow w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold hover:shadow-lg transition-all min-h-12"
+                disabled={isSubmitting}
+                className="btn-glow w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold hover:shadow-lg transition-all min-h-12 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                Send Inquiry
+                {isSubmitting && <Loader size={18} className="animate-spin" />}
+                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
               </button>
             </div>
+
+            {/* Success/Error Message */}
+            {submitMessage && (
+              <div className={`mt-4 p-3 rounded-lg text-sm text-center ${
+                submitStatus === 'success'
+                  ? 'bg-green-500/20 text-green-300 border border-green-500/30'
+                  : 'bg-red-500/20 text-red-300 border border-red-500/30'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
           </form>
 
           {/* Trust Badges */}

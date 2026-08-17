@@ -1,63 +1,25 @@
 import React from 'react'
 import { Check, Shield, Smartphone, Zap, Headphones, Monitor, Gem, ShoppingCart, PenTool, DollarSign, TrendingUp, MessageSquare } from 'lucide-react'
+import pricingData from '../../data/pricing.json'
+
+// Map icon names to actual icon components
+const iconMap = {
+  Monitor,
+  Gem,
+  ShoppingCart,
+}
 
 export default function Pricing() {
   const openWhatsAppWithPlan = (planName) => {
     const message = `Hi Nila Ventures! I'm interested in the ${planName} package. Can you provide more details?`
     window.open(`https://wa.me/917510988356?text=${encodeURIComponent(message)}`, '_blank')
   }
-  const pricingPlans = [
-    {
-      name: 'BASIC',
-      price: '₹7,500',
-      icon: Monitor,
-      tagline: 'Perfect for startups and small businesses.',
-      features: [
-        'Professional Website',
-        'Up to 5 Pages',
-        'Showcase Your Products/Services',
-        'WhatsApp Integration',
-        'Instagram & Social Media Links',
-        'Mobile Friendly Design',
-        'Website Setup & Launch',
-      ],
-      highlighted: false,
-    },
-    {
-      name: 'PREMIUM',
-      price: '₹12,500',
-      icon: Gem,
-      badge: 'MOST POPULAR',
-      tagline: 'Great for growing businesses that want more visibility.',
-      features: [
-        'Everything in Basic',
-        'Up to 10 Pages',
-        'Different Pages for Each Service/Product',
-        'Product Prices & Details',
-        'WhatsApp & Call Button',
-        'Google Maps Integration',
-        'Custom Premium Design',
-        'Better UI/UX & Animations',
-      ],
-      highlighted: true,
-    },
-    {
-      name: 'ONLINE STORE',
-      price: '₹20,000',
-      icon: ShoppingCart,
-      tagline: 'Complete solution to sell your products or services online.',
-      features: [
-        'Everything in Premium',
-        'Shopping Cart',
-        'Online Ordering',
-        'Online Payment Options',
-        'Order Management',
-        'Product Availability Management',
-        'Offers & Discounts',
-      ],
-      highlighted: false,
-    },
-  ]
+
+  // Map icon strings to actual components
+  const pricingPlans = pricingData.plans.map(plan => ({
+    ...plan,
+    icon: iconMap[plan.icon],
+  }))
 
   const trustBadges = [
     {
