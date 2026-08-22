@@ -1,98 +1,110 @@
 import React, { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, HelpCircle, MessageSquare, Sparkles } from 'lucide-react'
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState(0)
 
   const faqs = [
     {
-      question: 'How long does a website take to build?',
+      question: 'How long does a website project take from start to finish?',
       answer:
-        'Most websites take 4-8 weeks from discovery to launch, depending on complexity and features. We always prioritize quality over speed.',
+        'Most standard business and e-commerce websites are completed and launched within 10 to 14 business days. We follow a strict 4-stage milestone process ensuring rapid turnaround without compromising quality.',
     },
     {
-      question: 'Do you provide hosting and domain services?',
+      question: 'Do I get full ownership of the website and source code?',
       answer:
-        'Yes! We can help you with domain registration and premium hosting solutions. We recommend secure, fast, and reliable hosting providers.',
+        'Yes, 100%! Once full payment is complete, you own all design files, source code, domains, and assets. We do not lock you into proprietary hosting traps.',
     },
     {
-      question: 'Can I update the website myself?',
+      question: 'Can I easily update prices, photos, and products myself?',
       answer:
-        'Absolutely! We build websites on easy-to-use CMS platforms. We also provide training and documentation for easy updates.',
+        'Yes! We build with intuitive CMS solutions or simple dashboard setups, and provide custom video walkthroughs showing you how to update content in minutes.',
     },
     {
-      question: 'Do you build e-commerce stores?',
+      question: 'How do WhatsApp ordering and lead inquiries work?',
       answer:
-        'Yes! We specialize in building secure, conversion-optimized e-commerce websites with payment gateway integration.',
+        'When a customer clicks "Order" or "Book Appointment", it opens WhatsApp on their phone with a pre-filled message detailing the product, price, or service selected. You receive high-intent inquiries directly into your business WhatsApp.',
     },
     {
-      question: 'Do you work with businesses outside Kerala?',
+      question: 'Do you provide domain registration and high-speed hosting?',
       answer:
-        'Yes! We work with clients from across India and internationally. Our entire process is done online, so location is not a barrier.',
+        'Yes! We assist with .com / .in domain registration and set up global CDN hosting backed by automated SSL certificates and sub-second load times.',
     },
     {
-      question: 'What about ongoing support and maintenance?',
+      question: 'What happens after the website is launched?',
       answer:
-        'We provide ongoing support, regular updates, security checks, and optimization to keep your website running at peak performance.',
+        'We include 30 days of post-launch maintenance, bug fixes, and performance monitoring. Ongoing maintenance retainer packages are also available if you want continuous updates.',
     },
   ]
 
-  return (
-    <section className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-violet-600/5 blur-3xl -z-10" />
+  const openWhatsApp = () => {
+    const msg = "Hi Nila Ventures! I have a question regarding your website packages."
+    window.open(`https://wa.me/917510988356?text=${encodeURIComponent(msg)}`, '_blank')
+  }
 
+  return (
+    <section id="faq" className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden bg-cyber-grid">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-4 sm:mb-6 md:mb-10 space-y-1.5 sm:space-y-2 md:space-y-3 animate-slide-up">
-          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black">
-            Frequently Asked<span className="neon-text"> Questions</span>
+        <div className="text-center mb-10 sm:mb-14 space-y-3 animate-slide-up max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold">
+            <HelpCircle size={13} className="text-purple-400" />
+            <span>Got Questions?</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white">
+            Frequently Asked <span className="neon-text">Questions</span>
           </h2>
-          <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">
-            Everything you need to know about our services
+          <p className="text-sm sm:text-base text-gray-400 font-light">
+            Everything you need to know before initiating your project with us.
           </p>
         </div>
 
-        {/* Contact Floating Actions */}
-        {/* Moved to FloatingContactMenu component */}
-
-        {/* FAQ Items */}
-        <div className="space-y-2 sm:space-y-3 md:space-y-4">
-          {faqs.map((faq, idx) => (
-            <div
-              key={idx}
-              className="glass-card rounded-xl overflow-hidden transition-all hover:border-purple-400"
-              style={{
-                animation: `slideUp 0.6s ease-out ${idx * 0.08}s both`,
-              }}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-purple-500/10 transition-colors"
+        {/* FAQ Accordion List */}
+        <div className="space-y-3 sm:space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx
+            return (
+              <div
+                key={idx}
+                className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 border ${
+                  isOpen ? 'border-purple-500/50 bg-[#120F22]' : 'border-white/[0.08] hover:border-purple-500/30'
+                }`}
               >
-                <span className="font-bold text-base sm:text-lg text-left">{faq.question}</span>
-                <ChevronDown
-                  size={24}
-                  className={`flex-shrink-0 transition-transform ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full px-5 sm:px-7 py-4 sm:py-5 flex items-center justify-between text-left gap-4 hover:bg-white/[0.02] transition-colors"
+                >
+                  <span className="font-bold text-sm sm:text-base text-white">{faq.question}</span>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                    isOpen ? 'rotate-180 bg-purple-500/20 text-purple-300' : 'bg-white/[0.04] text-gray-400'
+                  }`}>
+                    <ChevronDown size={18} />
+                  </div>
+                </button>
 
-              {/* Answer */}
-              {openIndex === idx && (
-                <div className="px-6 py-4 border-t border-purple-500/20 bg-purple-500/5 text-gray-300 animate-slide-up">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
-          ))}
+                {isOpen && (
+                  <div className="px-5 sm:px-7 pb-5 pt-1 text-xs sm:text-sm text-gray-300/90 leading-relaxed font-light border-t border-white/[0.04] animate-slide-up">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
-        {/* Still have questions */}
-        <div className="text-center mt-12 space-y-4">
-          <p className="text-gray-400">Still have questions?</p>
-          <button className="btn-glow px-8 py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold">
-            Get in Touch
+        {/* Bottom Direct Question CTA */}
+        <div className="mt-10 sm:mt-12 text-center p-6 rounded-2xl glass-card border border-purple-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-center sm:text-left space-y-0.5">
+            <p className="font-bold text-sm sm:text-base text-white">Have a specific question not covered here?</p>
+            <p className="text-xs text-gray-400">Speak directly with our technical lead on WhatsApp.</p>
+          </div>
+          <button
+            onClick={openWhatsApp}
+            className="btn-glow px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 flex-shrink-0"
+          >
+            <MessageSquare size={16} />
+            <span>Chat with Us Directly</span>
           </button>
         </div>
       </div>

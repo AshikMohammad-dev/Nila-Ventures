@@ -1,160 +1,216 @@
-import React from 'react'
-import { ArrowRight, UtensilsCrossed, Shirt, Hotel, Stethoscope, Building2, Zap } from 'lucide-react'
+import React, { useState } from 'react'
+import { ArrowRight, UtensilsCrossed, Shirt, Hotel, Stethoscope, Building2, Zap, ExternalLink, Sparkles, CheckCircle2 } from 'lucide-react'
 
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState('all')
+
+  const categories = [
+    { id: 'all', label: 'All Industries' },
+    { id: 'ecommerce', label: 'E-Commerce & Retail' },
+    { id: 'dining', label: 'Restaurants & Dining' },
+    { id: 'hospitality', label: 'Hospitality & Real Estate' },
+    { id: 'medical', label: 'Healthcare & Clinics' },
+    { id: 'saas', label: 'Tech & SaaS' },
+  ]
+
   const projects = [
     {
-      category: 'Restaurant',
-      title: 'Fine Dining Restaurant',
-      result: '+300% Online Orders',
+      category: 'dining',
+      categoryLabel: 'Restaurant & Cafe',
+      title: 'The Malabar Fine Dining',
+      result: '+340% Online Table Bookings',
       icon: UtensilsCrossed,
-      color: 'from-orange-500 to-red-500',
-      gradient: 'from-orange-600/20 via-transparent to-transparent',
-      description: 'Online presence, reservations, menu showcase',
+      color: 'from-orange-500 to-amber-600',
+      description: 'Interactive luxury menu, 1-click table reservations, automated WhatsApp order confirmations.',
+      tags: ['Smart Menu', 'Instant Booking', 'Local SEO #1'],
+      previewUrl: 'themalabar.dining',
     },
     {
-      category: 'Fashion',
-      title: 'Clothing Brand',
-      result: '+250% Sales',
+      category: 'ecommerce',
+      categoryLabel: 'Luxury Fashion',
+      title: 'Aurelia Silk & Linen Brand',
+      result: '+260% Direct WhatsApp Sales',
       icon: Shirt,
-      color: 'from-pink-500 to-rose-500',
-      gradient: 'from-pink-600/20 via-transparent to-transparent',
-      description: 'E-commerce store, product catalog, checkout',
+      color: 'from-pink-500 to-rose-600',
+      description: 'High-speed mobile catalog, instant UPI checkout, multi-size selector, and Instagram shopping feed.',
+      tags: ['UPI & Cards', 'Live Inventory', 'Sub-second Load'],
+      previewUrl: 'aureliafashion.store',
     },
     {
-      category: 'Hospitality',
-      title: 'Boutique Hostel',
-      result: '+180% Bookings',
+      category: 'hospitality',
+      categoryLabel: 'Boutique Resort',
+      title: 'Verdant Hills Villa & Retreat',
+      result: '+190% Direct Room Reservations',
       icon: Hotel,
-      color: 'from-blue-500 to-cyan-500',
-      gradient: 'from-blue-600/20 via-transparent to-transparent',
-      description: 'Booking system, room showcase, guest reviews',
+      color: 'from-blue-500 to-cyan-600',
+      description: 'Direct booking engine with zero commission fees, 360° virtual room tours, and guest review sync.',
+      tags: ['Zero-Commission Booking', '360° Gallery', 'Multi-Language'],
+      previewUrl: 'verdanthills.stay',
     },
     {
-      category: 'Medical',
-      title: 'Medical Clinic',
-      result: '+150% Appointments',
+      category: 'medical',
+      categoryLabel: 'Dental & Wellness',
+      title: 'Apex Smile & Dental Clinic',
+      result: '+185% Patient Consultations',
       icon: Stethoscope,
-      color: 'from-green-500 to-emerald-500',
-      gradient: 'from-green-600/20 via-transparent to-transparent',
-      description: 'Appointment booking, doctor profiles, services',
+      color: 'from-emerald-500 to-teal-600',
+      description: 'Doctor profile showcase, patient pre-booking scheduler, automated appointment reminders via SMS & WhatsApp.',
+      tags: ['HIPAA Compliant', 'Slot Scheduler', 'Google Reviews'],
+      previewUrl: 'apexsmile.care',
     },
     {
-      category: 'Real Estate',
-      title: 'Real Estate Agency',
-      result: '+200% Inquiries',
+      category: 'hospitality',
+      categoryLabel: 'Real Estate Developer',
+      title: 'Skyline Premium Residences',
+      result: '+310% High-Intent Leads',
       icon: Building2,
-      color: 'from-amber-500 to-yellow-500',
-      gradient: 'from-amber-600/20 via-transparent to-transparent',
-      description: 'Property listings, 3D tours, lead generation',
+      color: 'from-amber-500 to-yellow-600',
+      description: 'Interactive floor plan explorer, neighborhood guide, WhatsApp instant brochure download with lead capture.',
+      tags: ['3D Floor Plans', 'Instant Brochure', 'Ad Funnel'],
+      previewUrl: 'skylineluxury.in',
     },
     {
-      category: 'SaaS',
-      title: 'Startup SaaS Platform',
-      result: '+500% Sign-ups',
+      category: 'saas',
+      categoryLabel: 'Tech Platform',
+      title: 'FlowSync Cloud Intelligence',
+      result: '+480% App Sign-ups',
       icon: Zap,
-      color: 'from-purple-500 to-indigo-500',
-      gradient: 'from-purple-600/20 via-transparent to-transparent',
-      description: 'SaaS dashboard, user onboarding, analytics',
+      color: 'from-purple-500 to-indigo-600',
+      description: 'Interactive pricing comparison, dynamic product demo walkthrough, and automated Stripe onboarding funnel.',
+      tags: ['Interactive Demo', 'Stripe Billing', 'Dark Mode UI'],
+      previewUrl: 'flowsync.cloud',
     },
   ]
+
+  const filteredProjects = selectedCategory === 'all'
+    ? projects
+    : projects.filter(p => p.category === selectedCategory)
+
+  const openWhatsAppWithProject = (title) => {
+    const msg = `Hi Nila Ventures! I loved your work on "${title}". I want a similar high-converting website for my business.`
+    window.open(`https://wa.me/917510988356?text=${encodeURIComponent(msg)}`, '_blank')
+  }
 
   return (
     <section
       id="industries"
-      className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-violet-600/5 blur-3xl -z-10" />
-
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-4 sm:mb-6 md:mb-10 space-y-1.5 sm:space-y-2 md:space-y-3 animate-slide-up">
-          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black">
-            Industries We<span className="neon-text"> Transform</span>
+        <div className="text-center mb-10 sm:mb-12 space-y-3 animate-slide-up max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold">
+            <Sparkles size={13} className="text-purple-400" />
+            <span>Proven Sector Expertise</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white">
+            Industries We Turn Into <span className="neon-text">Market Leaders</span>
           </h2>
-          <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 max-w-2xl mx-auto">
-            Specialized solutions for your industry with proven growth strategies
+          <p className="text-sm sm:text-base text-gray-400 font-light">
+            Explore industry-specific architectures engineered to outshine your competition and drive high-intent inquiries.
           </p>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-8 sm:mb-12 scrollbar-thin scrollbar-thumb-purple-500/30">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
+                selectedCategory === cat.id
+                  ? 'bg-gradient-to-r from-purple-500 to-violet-600 text-white shadow-lg shadow-purple-600/30 border border-purple-400/40'
+                  : 'glass-card text-gray-300 hover:text-white hover:border-purple-500/30'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         {/* Portfolio Grid */}
-        <div className="flex md:grid md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 overflow-x-auto pb-1 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
-          {projects.map((project, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredProjects.map((project, idx) => {
             const Icon = project.icon
             return (
               <div
                 key={idx}
-                className="group relative overflow-hidden rounded-lg sm:rounded-lg md:rounded-xl cursor-pointer transform transition-all duration-300 hover:scale-105 flex-shrink-0 w-[90%] sm:w-[74%] md:w-auto max-w-[280px] md:max-w-none snap-center md:snap-none"
-                style={{
-                  animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
-                }}
+                className="glass-card rounded-2xl overflow-hidden border border-white/[0.08] hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between group shadow-xl bg-[#0E0C18]/90"
               >
-                {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient}`} />
-
-                {/* Glass Card */}
-                <div className="glass-card relative h-full min-h-64 sm:min-h-72 md:min-h-80 p-4 sm:p-5 md:p-6 flex flex-col justify-between border border-purple-500/20 group-hover:border-purple-500/50 transition-all duration-300">
-                  {/* Top Section */}
-                  <div className="space-y-4">
-                    {/* Category Badge */}
-                    <div className="flex items-center gap-3 w-fit">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${project.color} p-2 flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                        <Icon size={20} className="text-white sm:w-6 sm:h-6" />
+                {/* Mockup Preview Chrome */}
+                <div className="p-4 pb-0 bg-white/[0.02] border-b border-white/[0.06]">
+                  <div className="rounded-t-xl bg-dark-card border border-white/[0.06] p-3 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                        <span className="w-2 h-2 rounded-full bg-yellow-400/80" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
                       </div>
-                      <span className="text-purple-300 text-xs sm:text-sm font-bold uppercase tracking-wider">
-                        {project.category}
-                      </span>
+                      <span className="text-[10px] text-gray-400 font-mono">{project.previewUrl}</span>
                     </div>
 
-                    {/* Title */}
-                    <div>
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-black leading-tight group-hover:neon-text transition-all">
-                        {project.title}
-                      </h3>
+                    {/* Miniature Banner */}
+                    <div className={`p-4 rounded-lg bg-gradient-to-r ${project.color} text-white flex items-center justify-between shadow-md`}>
+                      <div className="space-y-0.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider opacity-90">{project.categoryLabel}</span>
+                        <p className="text-sm font-extrabold">{project.title}</p>
+                      </div>
+                      <div className="p-2 rounded-lg bg-white/20 backdrop-blur-md">
+                        <Icon size={18} />
+                      </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Bottom Section */}
-                  <div className="space-y-3 sm:space-y-4 pt-4">
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                {/* Content Section */}
+                <div className="p-5 sm:p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    {/* ROI Pill */}
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-extrabold">
+                      <Sparkles size={12} />
+                      <span>{project.result}</span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-gray-300/90 leading-relaxed font-light">
                       {project.description}
                     </p>
 
-                    {/* Divider */}
-                    <div className="h-px bg-gradient-to-r from-purple-500/0 via-purple-500/40 to-purple-500/0 group-hover:via-purple-400 transition-all" />
-
-                    {/* Result & Arrow */}
-                    <div className="flex items-end justify-between gap-4">
-                      <p className="text-base sm:text-lg md:text-xl font-black neon-text">
-                        {project.result}
-                      </p>
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${project.color} flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all`}>
-                        <ArrowRight size={20} className="text-white group-hover:translate-x-1 transition-transform sm:w-6 sm:h-6" />
-                      </div>
+                    {/* Tag Pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {project.tags.map((t, i) => (
+                        <span key={i} className="text-[11px] px-2 py-0.5 rounded-md bg-white/[0.04] text-gray-300 border border-white/[0.06]">
+                          {t}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Hover Glow Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`} />
+                  {/* Interactive Button */}
+                  <div className="pt-4 border-t border-white/[0.06]">
+                    <button
+                      onClick={() => openWhatsAppWithProject(project.title)}
+                      className="w-full py-2.5 rounded-xl bg-purple-500/10 hover:bg-gradient-to-r hover:from-purple-500 hover:to-violet-600 text-purple-200 hover:text-white border border-purple-500/20 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-purple-600/20"
+                    >
+                      <span>Build Similar Website</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
                 </div>
-
-                {/* Top Accent Line */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
               </div>
             )
           })}
         </div>
 
-        {/* CTA Button */}
+        {/* Bottom CTA */}
         <div className="text-center mt-12 sm:mt-16">
           <button
             type="button"
             onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-glow px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-xl font-bold text-sm sm:text-base hover:shadow-glow-lg transition-all min-h-12 inline-flex items-center gap-2"
+            className="btn-glow px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold text-sm sm:text-base inline-flex items-center gap-2"
           >
-            Get Your Industry Solution
-            <ArrowRight size={20} />
+            <span>Discuss Your Industry Solution</span>
+            <ArrowRight size={18} />
           </button>
         </div>
       </div>

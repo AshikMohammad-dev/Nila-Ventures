@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Zap, ShieldCheck, Smartphone, Search, Award, TrendingUp } from 'lucide-react'
 
 export default function Stats() {
   const [counts, setCounts] = useState({
-    design: 0,
-    performance: 0,
+    speed: 0,
+    conversion: 0,
     mobile: 0,
     seo: 0,
   })
@@ -17,7 +18,7 @@ export default function Stats() {
           setIsVisible(true)
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     )
 
     if (ref.current) observer.observe(ref.current)
@@ -27,44 +28,105 @@ export default function Stats() {
   useEffect(() => {
     if (!isVisible) return
 
-    const targets = { design: 100, performance: 99, mobile: 100, seo: 98 }
-    const increment = setInterval(() => {
-      setCounts((prev) => ({
-        design: Math.min(prev.design + Math.random() * 10, targets.design),
-        performance: Math.min(prev.performance + Math.random() * 10, targets.performance),
-        mobile: Math.min(prev.mobile + Math.random() * 10, targets.mobile),
-        seo: Math.min(prev.seo + Math.random() * 10, targets.seo),
-      }))
-    }, 50)
+    const targets = { speed: 99, conversion: 300, mobile: 100, seo: 98 }
+    const duration = 1500
+    const steps = 30
+    const stepTime = duration / steps
 
-    return () => clearInterval(increment)
+    let currentStep = 0
+    const timer = setInterval(() => {
+      currentStep++
+      const progress = currentStep / steps
+      setCounts({
+        speed: Math.round(targets.speed * progress),
+        conversion: Math.round(targets.conversion * progress),
+        mobile: Math.round(targets.mobile * progress),
+        seo: Math.round(targets.seo * progress),
+      })
+
+      if (currentStep >= steps) {
+        clearInterval(timer)
+      }
+    }, stepTime)
+
+    return () => clearInterval(timer)
   }, [isVisible])
 
   const stats = [
-    { label: 'Custom Design', value: 'design', suffix: '%' },
-    { label: 'Fast Performance', value: 'performance', suffix: '%' },
-    { label: 'Mobile Optimized', value: 'mobile', suffix: '%' },
-    { label: 'SEO Ready', value: 'seo', suffix: '%' },
+    {
+      icon: Zap,
+      value: counts.speed,
+      suffix: '/100',
+      label: 'Performance Score',
+      desc: 'Blazing fast load times under 1.2s',
+      color: 'text-purple-400',
+      badgeBg: 'bg-purple-500/10 border-purple-500/20',
+    },
+    {
+      icon: TrendingUp,
+      value: `+${counts.conversion}`,
+      suffix: '%',
+      label: 'Average Lead Growth',
+      desc: 'Proven conversion-first UX layouts',
+      color: 'text-emerald-400',
+      badgeBg: 'bg-emerald-500/10 border-emerald-500/20',
+    },
+    {
+      icon: Smartphone,
+      value: counts.mobile,
+      suffix: '%',
+      label: 'Mobile Responsive',
+      desc: 'Flawless touch experience on iOS & Android',
+      color: 'text-cyan-400',
+      badgeBg: 'bg-cyan-500/10 border-cyan-500/20',
+    },
+    {
+      icon: Search,
+      value: counts.seo,
+      suffix: '%',
+      label: 'Google SEO Ready',
+      desc: 'Schema markup & technical indexing built-in',
+      color: 'text-amber-400',
+      badgeBg: 'bg-amber-500/10 border-amber-500/20',
+    },
   ]
 
   return (
     <section
       ref={ref}
-      className="relative py-14 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent"
+      className="relative py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8 lg:px-10 border-y border-white/[0.06] bg-[#0A0912]/80 backdrop-blur-md"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-          {stats.map((stat) => (
-            <div
-              key={stat.value}
-              className="glass-card p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-center space-y-2 hover:scale-105 transition-transform"
-            >
-              <p className="text-xl sm:text-3xl md:text-5xl font-black neon-text">
-                {Math.round(counts[stat.value])}{stat.suffix}
-              </p>
-              <p className="text-xs sm:text-sm md:text-base text-gray-400 font-medium">{stat.label}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6">
+          {stats.map((stat, idx) => {
+            const Icon = stat.icon
+            return (
+              <div
+                key={idx}
+                className="glass-card p-4 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-purple-500/40 transition-all"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className={`p-2 rounded-xl ${stat.badgeBg} border ${stat.color}`}>
+                    <Icon size={18} className="sm:w-5 sm:h-5" />
+                  </div>
+                  <span className="text-[10px] sm:text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    Verified
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-display tracking-tight text-white flex items-baseline">
+                    <span className="neon-text">{stat.value}</span>
+                    <span className="text-sm sm:text-lg text-purple-400 ml-0.5">{stat.suffix}</span>
+                  </p>
+                  <p className="text-xs sm:text-sm font-bold text-gray-200">{stat.label}</p>
+                  <p className="text-[11px] sm:text-xs text-gray-400 font-light leading-relaxed hidden sm:block">
+                    {stat.desc}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

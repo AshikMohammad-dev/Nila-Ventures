@@ -1,83 +1,105 @@
 import React from 'react'
-import { Star, User } from 'lucide-react'
+import { Star, Quote, CheckCircle, Sparkles } from 'lucide-react'
 
 export default function Testimonials() {
   const testimonials = [
     {
       name: 'Rajesh Kumar',
-      company: 'Fine Dining Restaurant',
+      role: 'Managing Partner',
+      company: 'The Malabar Fine Dining',
       initials: 'RK',
       rating: 5,
-      text: 'Nila Ventures completely transformed our online presence. We started getting inquiries within days of launching our new website. The design is stunning and the user experience is seamless.',
+      result: '+340% Table Bookings',
+      text: 'Nila Ventures completely elevated our luxury dining brand. Within 10 days of launch, our online reservations skyrocketed. The mobile UX and WhatsApp table booking work seamlessly.',
+      gradient: 'from-orange-500 to-amber-600',
     },
     {
       name: 'Priya Sharma',
-      company: 'Fashion Boutique',
+      role: 'Founder & Designer',
+      company: 'Aurelia Silk & Linen',
       initials: 'PS',
       rating: 5,
-      text: 'Professional, responsive, and incredibly talented team. They understood our vision and delivered beyond expectations. Our online sales have tripled since the website launch.',
+      result: '+260% WhatsApp Orders',
+      text: 'Super responsive, professional, and delivered beyond our high expectations. The catalog is blisteringly fast on mobile and our online customer conversions have more than doubled.',
+      gradient: 'from-pink-500 to-rose-600',
     },
     {
-      name: 'Arun Nair',
-      company: 'Medical Clinic',
+      name: 'Dr. Arun Nair',
+      role: 'Chief Medical Director',
+      company: 'Apex Dental Care',
       initials: 'AN',
       rating: 5,
-      text: 'The best investment we made for our clinic. Patient inquiries have increased significantly, and the website is so easy to manage. Highly recommended!',
+      result: '+185% Patient Inquiries',
+      text: 'The best digital agency investment we have made. Our clinic now ranks #1 locally in Google search and patients love the 1-click WhatsApp appointment scheduler.',
+      gradient: 'from-emerald-500 to-teal-600',
     },
   ]
 
   return (
-    <section className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-violet-600/5 blur-3xl -z-10" />
-
+    <section className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden bg-[#07060D]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-4 sm:mb-6 md:mb-10 space-y-1.5 sm:space-y-2 md:space-y-3 animate-slide-up">
-          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black">
-            Loved by<span className="neon-text"> Businesses</span>
+        <div className="text-center mb-12 sm:mb-16 space-y-3 animate-slide-up max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold">
+            <Sparkles size={13} className="text-purple-400" />
+            <span>Client Success Stories</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white">
+            Trusted by Ambitious <span className="neon-text">Brand Leaders</span>
           </h2>
-          <p className="text-[10px] sm:text-xs md:text-sm text-gray-400 max-w-2xl mx-auto">
-            Real testimonials from our satisfied clients
+          <p className="text-sm sm:text-base text-gray-400 font-light">
+            Real feedback from business owners who scaled their revenue and credibility with Nila Ventures.
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-3 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, idx) => (
             <div
               key={idx}
-              className="glass-card p-8 rounded-2xl space-y-6 hover:border-purple-400 transition-all hover:scale-105 flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none"
+              className="glass-card p-6 sm:p-8 rounded-3xl border border-white/[0.08] hover:border-purple-500/40 relative flex flex-col justify-between group bg-[#0E0C18]/90 transition-all duration-300 shadow-xl"
               style={{
                 animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
               }}
             >
-              {/* Stars */}
-              <div className="flex gap-1">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={18}
-                    className="fill-yellow-400 text-yellow-400"
-                  />
-                ))}
-              </div>
-
-              {/* Text */}
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed italic">"{testimonial.text}"</p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 sm:gap-4 pt-4 border-t border-purple-500/20">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center flex-shrink-0">
-                  <span className="font-bold text-white text-xs sm:text-sm">
-                    {testimonial.initials}
+              <div className="space-y-4">
+                {/* Header: Stars & ROI Pill */}
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-1">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star
+                        key={i}
+                        size={15}
+                        className="fill-amber-400 text-amber-400"
+                      />
+                    ))}
+                  </div>
+                  <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                    {testimonial.result}
                   </span>
                 </div>
-                <div>
-                  <p className="font-bold text-sm sm:text-base">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs sm:text-sm text-gray-400">
-                    {testimonial.company}
+
+                {/* Quote Text */}
+                <p className="text-xs sm:text-sm text-gray-300/90 leading-relaxed font-light italic">
+                  "{testimonial.text}"
+                </p>
+              </div>
+
+              {/* Author Footer */}
+              <div className="flex items-center gap-3 pt-5 mt-5 border-t border-white/[0.06]">
+                <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-md`}>
+                  {testimonial.initials}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5">
+                    <p className="font-bold text-sm text-white truncate">
+                      {testimonial.name}
+                    </p>
+                    <CheckCircle size={13} className="text-purple-400 flex-shrink-0" />
+                  </div>
+                  <p className="text-xs text-gray-400 truncate font-light">
+                    {testimonial.role} • <span className="text-gray-300">{testimonial.company}</span>
                   </p>
                 </div>
               </div>

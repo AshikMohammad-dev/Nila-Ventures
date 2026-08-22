@@ -6,6 +6,9 @@ import {
   Code2,
   Rocket,
   TrendingUp,
+  Sparkles,
+  Clock,
+  CheckCircle2
 } from 'lucide-react'
 
 export default function Process() {
@@ -13,101 +16,106 @@ export default function Process() {
     {
       number: '01',
       icon: MessageSquare,
-      title: 'Discovery Call',
-      description: 'We understand your business, goals, and vision.',
+      timeframe: 'Day 1 - 2',
+      title: 'Discovery & Vision Alignment',
+      description: 'We dive deep into your target audience, competitor landscape, and revenue goals to define exact conversion funnels.',
+      deliverable: 'Strategy Blueprint & Sitemap',
     },
     {
       number: '02',
-      icon: Lightbulb,
-      title: 'Strategy',
-      description: 'Crafting a comprehensive plan tailored to your needs.',
+      icon: Palette,
+      timeframe: 'Day 3 - 6',
+      title: 'Bespoke Luxury UI/UX Design',
+      description: 'Handcrafted Figma prototypes tailored to your brand identity with micro-interactions, dark aesthetic, and typography.',
+      deliverable: 'Interactive Figma Prototypes',
     },
     {
       number: '03',
-      icon: Palette,
-      title: 'Design',
-      description: 'Creating stunning, user-friendly designs.',
+      icon: Code2,
+      timeframe: 'Day 7 - 11',
+      title: 'Speed-Tuned Engineering',
+      description: 'Clean React/Tailwind code development with 99+ Core Web Vitals, mobile-first touch optimization, and WhatsApp integrations.',
+      deliverable: 'Staging Environment Preview',
     },
     {
       number: '04',
-      icon: Code2,
-      title: 'Development',
-      description: 'Building fast, secure, and scalable websites.',
-    },
-    {
-      number: '05',
       icon: Rocket,
-      title: 'Launch',
-      description: 'Deploying your website to the world.',
-    },
-    {
-      number: '06',
-      icon: TrendingUp,
-      title: 'Growth Support',
-      description: 'Continuous optimization and support.',
+      timeframe: 'Day 12 - 14',
+      title: 'Testing, SEO & Global Launch',
+      description: 'Cross-browser QA testing, Google Search Console indexing, domain SSL configuration, and live deployment handover.',
+      deliverable: 'Live Website & Admin Access',
     },
   ]
 
   return (
     <section
       id="process"
-      className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden bg-[#08070E]"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-violet-600/5 blur-3xl -z-10" />
-
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-4 sm:mb-6 md:mb-10 space-y-1.5 sm:space-y-2 md:space-y-3 animate-slide-up">
-          <h2 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.05em] text-balance">
-            Our<span className="neon-text"> Process</span>
+        <div className="text-center mb-12 sm:mb-16 space-y-3 animate-slide-up max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold">
+            <Sparkles size={13} className="text-purple-400" />
+            <span>Structured & Transparent Methodology</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white">
+            From Concept to Launch in <span className="neon-text">14 Days</span>
           </h2>
-          <p className="text-[10px] sm:text-xs md:text-sm text-gray-300 max-w-2xl mx-auto opacity-90">
-            A proven methodology for exceptional results
+          <p className="text-sm sm:text-base text-gray-400 font-light">
+            A battle-tested 4-phase delivery system ensuring zero delays, crystal-clear communication, and elite quality standards.
           </p>
         </div>
 
-        <div className="relative">
-          <div className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-purple-500/70 to-transparent -translate-x-1/2" />
-
-          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto pb-4 md:overflow-visible snap-x md:snap-none scrollbar-thin scrollbar-thumb-purple-500/70 scrollbar-track-transparent">
-            {steps.map((step, idx) => {
-              const Icon = step.icon
-              const isOffset = idx % 2 === 1
-
-              return (
-                <div
-                  key={idx}
-                  className={`relative flex-shrink-0 w-[82%] sm:w-[68%] md:w-auto max-w-[320px] md:max-w-none snap-center md:snap-none ${isOffset ? 'md:mt-10' : 'md:mt-0'}`}
-                  style={{
-                    animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
-                  }}
-                >
-                  <div className="relative">
-                    <div className="absolute -top-3 left-4 flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)] z-10">
-                      <span className="text-[10px] font-black">{step.number}</span>
-                    </div>
-
-                    <div className="absolute left-8 top-1/2 hidden md:block h-px w-7 bg-gradient-to-r from-purple-500 to-transparent -translate-y-1/2" />
-
-                    <div className="glass-card h-full p-4 sm:p-6 md:p-7 rounded-2xl border border-purple-500/20 relative overflow-hidden">
-                      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 to-violet-600 opacity-80" />
-
-                      <div className="flex items-start gap-3 sm:gap-4 pt-4 sm:pt-5">
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.35)]">
-                          <Icon size={22} className="text-white sm:w-6 sm:h-6" />
-                        </div>
-
-                        <div className="flex-1">
-                          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">{step.title}</h3>
-                          <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{step.description}</p>
-                        </div>
-                      </div>
+        {/* 4-Step Timeline Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 relative">
+          {steps.map((step, idx) => {
+            const Icon = step.icon
+            return (
+              <div
+                key={idx}
+                className="glass-card p-6 sm:p-7 rounded-2xl border border-white/[0.08] hover:border-purple-500/40 relative flex flex-col justify-between group bg-[#0E0C18]/90 transition-all duration-300"
+                style={{
+                  animation: `slideUp 0.6s ease-out ${idx * 0.1}s both`,
+                }}
+              >
+                {/* Step Header */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl sm:text-4xl font-extrabold font-display neon-text opacity-80">
+                      {step.number}
+                    </span>
+                    <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[11px] font-semibold">
+                      <Clock size={11} className="text-purple-400" />
+                      <span>{step.timeframe}</span>
                     </div>
                   </div>
+
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-purple-500/20 to-violet-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-purple-500 group-hover:to-violet-600 group-hover:text-white transition-all duration-300 shadow-md">
+                    <Icon size={20} />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <h3 className="text-lg font-bold text-white group-hover:text-purple-200 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-400 font-light leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-              )
-            })}
-          </div>
+
+                {/* Milestone Deliverable Pill */}
+                <div className="pt-5 mt-4 border-t border-white/[0.06]">
+                  <div className="flex items-center gap-1.5 text-[11px] text-emerald-400 font-medium bg-emerald-500/10 px-2.5 py-1.5 rounded-lg border border-emerald-500/20">
+                    <CheckCircle2 size={12} className="flex-shrink-0" />
+                    <span className="truncate">{step.deliverable}</span>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

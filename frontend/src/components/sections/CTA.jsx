@@ -1,41 +1,43 @@
 import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
-import { MessageCircle, Calendar, Check, Loader } from 'lucide-react'
+import { MessageCircle, Calendar, Check, Loader, Sparkles, Send, ShieldCheck, ArrowRight } from 'lucide-react'
 
 export default function CTA() {
-  // ⚠️ IMPORTANT: Replace these with your EmailJS credentials
   const EMAILJS_SERVICE_ID = 'service_495ati6'
   const EMAILJS_TEMPLATE_ID = 'template_g2dy1zd'
   const EMAILJS_PUBLIC_KEY = 'bMj9bnUDQRFFPiRi-'
 
-  // Initialize EmailJS (do this once)
   React.useEffect(() => {
     emailjs.init(EMAILJS_PUBLIC_KEY)
   }, [])
 
+  const [selectedProjectType, setSelectedProjectType] = useState('Business Website')
+  const [selectedTimeline, setSelectedTimeline] = useState('Standard (10-14 Days)')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
   const [submitStatus, setSubmitStatus] = useState('')
 
-  const openWhatsApp = () => {
-    window.open('https://wa.me/917510988356?text=Hi%20Nila%20Ventures%2C%20I%20want%20to%20know%20more%20about%20your%20website%20design%20services.', '_blank')
-  }
+  const projectTypes = [
+    'Business Website',
+    'E-Commerce Store',
+    'Landing Page',
+    'Complete Redesign',
+  ]
 
-  const scrollToForm = () => {
-    const form = document.getElementById('consultation-form')
-    form?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const timelines = [
+    'Urgent (Under 7 Days)',
+    'Standard (10-14 Days)',
+    'Flexible (Within a Month)',
+  ]
+
+  const openWhatsApp = () => {
+    const msg = `Hi Nila Ventures! I'm interested in building a ${selectedProjectType} with a timeline of "${selectedTimeline}". Can we schedule a free strategy call?`
+    window.open(`https://wa.me/917510988356?text=${encodeURIComponent(msg)}`, '_blank')
   }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault()
     
-    // Check if credentials are set
-    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
-      setSubmitStatus('error')
-      setSubmitMessage('❌ Email service not configured yet. Please add your EmailJS credentials.')
-      return
-    }
-
     setIsSubmitting(true)
     setSubmitMessage('')
 
@@ -44,7 +46,10 @@ export default function CTA() {
       const templateParams = {
         from_name: formData.get('name'),
         from_email: formData.get('email'),
-        company: formData.get('company'),
+        company: formData.get('company') || 'N/A',
+        phone: formData.get('phone') || 'N/A',
+        project_type: selectedProjectType,
+        timeline: selectedTimeline,
         message: formData.get('message'),
         to_email: 'ashikmohammad.zm@gmail.com',
       }
@@ -57,15 +62,15 @@ export default function CTA() {
       )
 
       setSubmitStatus('success')
-      setSubmitMessage('✅ Your inquiry has been sent! We\'ll respond within 24 hours.')
+      setSubmitMessage('✅ Inquiry received! Our team will reach out within 12 hours with a custom project proposal.')
       e.target.reset()
       setTimeout(() => {
         setSubmitMessage('')
-      }, 5000)
+      }, 6000)
     } catch (error) {
       console.error('Email error:', error)
       setSubmitStatus('error')
-      setSubmitMessage('❌ Failed to send inquiry. Please try again or contact us on WhatsApp.')
+      setSubmitMessage('❌ Failed to send. Please reach out to us directly on WhatsApp for an immediate response.')
     } finally {
       setIsSubmitting(false)
     }
@@ -74,132 +79,198 @@ export default function CTA() {
   return (
     <section
       id="cta"
-      className="relative py-6 sm:py-8 md:py-14 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 lg:px-10 overflow-hidden bg-cyber-grid"
     >
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-600 opacity-10 blur-3xl -z-10" />
-      <div className="absolute inset-0 bg-hero-gradient opacity-5 blur-2xl -z-10" />
+      {/* Background Ambient Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] h-[500px] bg-purple-600/15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-4xl mx-auto">
-        <div className="glass-card p-4 sm:p-6 md:p-10 rounded-3xl border-purple-400/30 text-center space-y-4 sm:space-y-6 animate-slide-up">
-          {/* Content */}
-          <div className="space-y-2 sm:space-y-3">
-            <h2 className="text-lg sm:text-2xl md:text-4xl font-black leading-tight tracking-[-0.04em]">
-              Let's Build Your
-              <span className="neon-text block mt-0.5 sm:mt-1">Success Story</span>
+        <div className="glass-card p-6 sm:p-10 md:p-12 rounded-3xl border border-purple-500/30 bg-[#0E0C1B]/95 text-center space-y-8 animate-slide-up shadow-2xl">
+          
+          {/* Header */}
+          <div className="space-y-3 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold">
+              <Sparkles size={13} className="text-purple-400" />
+              <span>Let's Build Something Remarkable</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-white">
+              Ready to Upgrade Your <span className="neon-text">Digital Presence?</span>
             </h2>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Your website should work as your best salesperson. Let's create something extraordinary together.
+            <p className="text-xs sm:text-sm md:text-base text-gray-400 font-light leading-relaxed">
+              Book a complimentary 20-minute strategy session. We'll audit your current digital presence and craft a tailored roadmap.
             </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center pt-1 sm:pt-2">
+          {/* Quick WhatsApp Action Strip */}
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-teal-950/20 to-purple-950/30 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <div className="space-y-0.5">
+              <span className="text-xs font-bold text-emerald-300 flex items-center justify-center sm:justify-start gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Instant WhatsApp Consultation
+              </span>
+              <p className="text-[11px] text-gray-400">Prefer chatting on WhatsApp? Get direct answers right away.</p>
+            </div>
             <button
               type="button"
               onClick={openWhatsApp}
-              className="btn-glow w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg sm:rounded-lg font-bold text-xs sm:text-sm md:text-base hover:shadow-lg transition-all min-h-10 sm:min-h-11"
+              className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl font-bold text-xs sm:text-sm hover:shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 flex-shrink-0"
             >
-              <MessageCircle size={16} className="sm:w-5 sm:h-5" />
-              WhatsApp Us
-            </button>
-            <button
-              type="button"
-              onClick={scrollToForm}
-              className="btn-glow w-full sm:w-auto flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-lg sm:rounded-lg font-bold text-xs sm:text-sm md:text-base hover:shadow-lg transition-all min-h-10 sm:min-h-11"
-            >
-              <Calendar size={16} className="sm:w-5 sm:h-5" />
-              Free Consultation
+              <MessageCircle size={16} />
+              <span>Chat on WhatsApp</span>
             </button>
           </div>
 
+          {/* Detailed Consultation Form */}
           <form
             id="consultation-form"
             onSubmit={handleFormSubmit}
-            className="mt-8 sm:mt-10 mx-auto max-w-2xl glass-card rounded-2xl border border-purple-500/20 p-4 sm:p-6 text-left"
+            className="text-left space-y-6 pt-2"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div>
-                <label htmlFor="name" className="block text-sm text-gray-300 mb-2">Name</label>
+            {/* 1. Project Type Selector */}
+            <div className="space-y-2">
+              <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider">
+                1. Select Project Type
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {projectTypes.map((type) => (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() => setSelectedProjectType(type)}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all text-center ${
+                      selectedProjectType === type
+                        ? 'bg-purple-500/20 border-purple-400 text-white shadow-md shadow-purple-500/20'
+                        : 'bg-white/[0.02] border-white/[0.08] text-gray-400 hover:border-white/20 hover:text-white'
+                    }`}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Timeline Selector */}
+            <div className="space-y-2">
+              <label className="block text-xs font-bold text-gray-300 uppercase tracking-wider">
+                2. Target Launch Timeline
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                {timelines.map((time) => (
+                  <button
+                    key={time}
+                    type="button"
+                    onClick={() => setSelectedTimeline(time)}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all text-center ${
+                      selectedTimeline === time
+                        ? 'bg-purple-500/20 border-purple-400 text-white shadow-md shadow-purple-500/20'
+                        : 'bg-white/[0.02] border-white/[0.08] text-gray-400 hover:border-white/20 hover:text-white'
+                    }`}
+                  >
+                    {time}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 3. Inputs Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label htmlFor="name" className="block text-xs font-semibold text-gray-300">Your Full Name *</label>
                 <input
                   id="name"
                   type="text"
                   name="name"
                   required
-                  placeholder="Your name"
-                  className="w-full rounded-xl border border-purple-500/20 bg-dark-light/80 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none"
+                  placeholder="e.g. Rahul Menon"
+                  className="w-full rounded-xl border border-white/[0.1] bg-[#141026] px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none transition-colors"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm text-gray-300 mb-2">Email</label>
+
+              <div className="space-y-1.5">
+                <label htmlFor="email" className="block text-xs font-semibold text-gray-300">Email Address *</label>
                 <input
                   id="email"
                   type="email"
                   name="email"
                   required
-                  placeholder="you@example.com"
-                  className="w-full rounded-xl border border-purple-500/20 bg-dark-light/80 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none"
+                  placeholder="e.g. rahul@brand.com"
+                  className="w-full rounded-xl border border-white/[0.1] bg-[#141026] px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none transition-colors"
                 />
               </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="company" className="block text-sm text-gray-300 mb-2">Business / Brand</label>
+
+              <div className="space-y-1.5">
+                <label htmlFor="company" className="block text-xs font-semibold text-gray-300">Company / Brand Name</label>
                 <input
                   id="company"
                   type="text"
                   name="company"
-                  placeholder="Your business name"
-                  className="w-full rounded-xl border border-purple-500/20 bg-dark-light/80 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none"
+                  placeholder="e.g. Kerala Spices Co."
+                  className="w-full rounded-xl border border-white/[0.1] bg-[#141026] px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none transition-colors"
                 />
               </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="message" className="block text-sm text-gray-300 mb-2">Project Details</label>
+
+              <div className="space-y-1.5">
+                <label htmlFor="phone" className="block text-xs font-semibold text-gray-300">Phone / WhatsApp Number</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="e.g. +91 98765 43210"
+                  className="w-full rounded-xl border border-white/[0.1] bg-[#141026] px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div className="sm:col-span-2 space-y-1.5">
+                <label htmlFor="message" className="block text-xs font-semibold text-gray-300">Project Details & Key Objectives *</label>
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
+                  rows="4"
                   required
-                  placeholder="Tell us about your website goals and timeline"
-                  className="w-full rounded-xl border border-purple-500/20 bg-dark-light/80 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none"
+                  placeholder="Tell us about your brand, current challenges, features needed, and inspirations..."
+                  className="w-full rounded-xl border border-white/[0.1] bg-[#141026] px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none transition-colors"
                 />
               </div>
             </div>
 
-            <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-xs text-gray-400">We usually respond within 24 hours.</p>
+            {/* Submit Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <div className="flex items-center gap-2 text-xs text-gray-400">
+                <ShieldCheck size={16} className="text-purple-400 flex-shrink-0" />
+                <span>NDA & Data Privacy Protected. No spam guaranteed.</span>
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn-glow w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold hover:shadow-lg transition-all min-h-12 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="btn-glow w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-purple-500 to-violet-600 text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 disabled:opacity-60"
               >
-                {isSubmitting && <Loader size={18} className="animate-spin" />}
-                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+                {isSubmitting ? (
+                  <>
+                    <Loader size={16} className="animate-spin" />
+                    <span>Transmitting Inquiry...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={16} />
+                    <span>Send Project Inquiry</span>
+                  </>
+                )}
               </button>
             </div>
 
-            {/* Success/Error Message */}
+            {/* Status Alert */}
             {submitMessage && (
-              <div className={`mt-4 p-3 rounded-lg text-sm text-center ${
+              <div className={`p-4 rounded-xl text-sm font-medium text-center animate-slide-up ${
                 submitStatus === 'success'
-                  ? 'bg-green-500/20 text-green-300 border border-green-500/30'
-                  : 'bg-red-500/20 text-red-300 border border-red-500/30'
+                  ? 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/30'
+                  : 'bg-rose-500/10 text-rose-300 border border-rose-500/30'
               }`}>
                 {submitMessage}
               </div>
             )}
           </form>
-
-          {/* Trust Badges */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center text-sm text-gray-400 pt-4">
-            <div className="flex items-center gap-2">
-              <Check size={24} className="text-purple-400 flex-shrink-0" />
-              <span>No credit card required</span>
-            </div>
-            <div className="w-px h-6 bg-purple-500/20 hidden sm:block" />
-            <div className="flex items-center gap-2">
-              <Check size={24} className="text-purple-400 flex-shrink-0" />
-              <span>Completely free initial consultation</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
